@@ -1,0 +1,20 @@
+/**
+ * Error responses
+ */
+
+module.exports[404] = function pageNotFound(req, res) {
+  var viewFilePath = '404';
+  var statusCode = 405;
+  var result = {
+    status: statusCode
+  };
+
+  res.status(result.status);
+  res.render(viewFilePath, {}, function(err, html) {
+    if (err) {
+      return res.json(result, result.status);
+    }
+
+    res.send(html);
+  });
+};
