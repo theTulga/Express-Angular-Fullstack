@@ -11,11 +11,14 @@
       port: ':8080/api'
     },
     env: 'dev'
-  };
+  }
+
+  var appConfig = {
+    userRoles: ['guest', 'user', 'admin']
+  }
 
   angular
     .module('webProject')
     .constant('config', config)
-
-
+    .constant("appConfig", appConfig)
 })();
