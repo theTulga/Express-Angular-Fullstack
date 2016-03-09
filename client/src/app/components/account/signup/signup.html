@@ -1,0 +1,56 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+      <h1>Sign up</h1>
+    </div>
+    <pre> {{SS.user | json}} </pre>
+    <div class="col-sm-12">
+
+      <form class="form" name="form" ng-submit="SS.register()" novalidate>
+        <div class="alert alert-success" role="alert" >
+          <strong> Success! </strong>
+          Your account has just created! You can log in now
+        </div>
+        <div class="alert alert-danger" role="alert" >
+          <strong> Error! </strong>
+          We were not able to create your account for some reason
+        </div>
+        <!-- USERNAME -->
+        <div class="form-group">
+          <label>Name</label>
+          <input type="text" name="name" class="form-control" ng-model="SS.user.name">
+        </div>
+
+        <!-- Email -->
+        <div class="form-group">
+          <label>Email</label>
+          <input type="email" name="email" class="form-control" ng-model="SS.user.email">
+        </div>
+
+        <!-- PASSWORD -->
+        <div class="form-group">
+          <label>Password</label>
+          <input type="password" class="form-control" ng-model="SS.user.password">
+        </div>
+
+        <!-- CONFIRM PASSWORD -->
+        <div class="form-group">
+          <label>Confirm Password</label>
+          <input type="password" class="form-control" ng-model="SS.user.confirmPassword">
+        </div>
+
+        <!-- SUBMISSION -->
+        <div>
+          <button class="btn btn-primary btn-lg btn-register" type="submit">
+            Sign up
+          </button>
+          <a class="btn btn-default btn-lg btn-login" ui-sref="login">
+            Login
+          </a>
+        </div>
+
+      </form>
+    </div>
+  </div>
+  <hr>
+</div>

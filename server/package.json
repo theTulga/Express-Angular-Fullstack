@@ -9,10 +9,11 @@
   "author": "Ts.Battulga",
   "license": "ISC",
   "dependencies": {
+    "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.15.0",
     "composable-middleware": "^0.3.0",
     "compression": "^1.6.1",
-    "connect-livereload": "^0.5.4",
+    "connect-redis": "^3.0.2",
     "cookie-parser": "^1.4.1",
     "crypto": "0.0.3",
     "ejs": "^2.4.1",

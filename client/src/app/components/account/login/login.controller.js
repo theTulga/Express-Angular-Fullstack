@@ -6,31 +6,19 @@
     .controller('LoginController', LoginController);
 
   /** @ngInject */
-  function LoginController($state) {
+  function LoginController($log, send) {
     var vm = this;
     vm.user = {};
-    vm.errors = {};
-    vm.submitted = false;
 
-
-    vm.$state = $state;
-
-    vm.login = function(form){
-      vm.submitted = true;
-
-      if (form.$valid){
-        vm.Auth.login({
-          email: vm.user.email,
-          password: vm.user.password
-        })
-        .then(function(){
-          vm.$state.go('main');
-        })
-        .catch(function(err){
-          vm.errors.other = err.message;
-        })
-      }
+    vm.login = function(){
+      send.request('/auth/local', 'POST', vm.user)
+        .then(
+          function(res){
+            $log.debug('success', res);
+          },
+          function(err){
+            $log.debug('error', err);
+          });
     }
   }
-
 })();

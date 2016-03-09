@@ -1,16 +1,16 @@
 (function() {
-  'use strict';
+  'use strict'
 
   angular
       .module('webProject')
-      .service('Send', Send);
+      .service('send', Send)
 
   /** @ngInject */
   function Send($http, $log, config) {
     var prefix = '';
     if(config.env === 'dev')        prefix += config.dev.host + config.dev.port;
     else                            prefix += config.app.host + config.app.port;
-
+    $log.debug('Service Loaded');
     var request = function(route, method, data){
       if (!data){
         method = 'GET'

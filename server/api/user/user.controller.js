@@ -1,7 +1,5 @@
 var User = require('../../sqldb').User;
-var passport = require('passport');
-var config = require('../../config/environment');
-var jwt = require('jsonwebtoken')
+var config = require('../../config/environment')
 
 function validationError(res, statusCode) {
   statusCode = statusCode || 422;
@@ -21,18 +19,18 @@ function handleError(res, statusCode) {
  * Get list of users
  * restriction: 'admin'
  */
-export function index(req, res) {
+exports.index = function (req, res) {
   User.findAll({
     attributes: [
-      '_id',
+      'id',
       'name',
       'email',
       'role',
       'provider'
     ]
   })
-    .then(users => {
-      res.status(200).json(users);
+    .then(function(users){
+      return res.status(200).json(users);
     })
     .catch(handleError(res));
 }
@@ -40,16 +38,16 @@ export function index(req, res) {
 /**
  * Creates a new user
  */
-export function create(req, res, next) {
+exports.create = function(req, res, next) {
   var newUser = User.build(req.body);
   newUser.setDataValue('provider', 'local');
-  newUser.setDataValue('role', 'admin');
+  newUser.setDataValue('role', 'user');
   newUser.save()
     .then(function(user) {
-      var token = jwt.sign({ _id: user._id }, config.secrets.session, {
-        expiresIn: 60 * 60 * 5
+      req.login(user, function(err){
+        if (err) next(err);
+        return res.status(201).send('Success!');
       });
-      res.json({ token });
     })
     .catch(validationError(res));
 }
@@ -57,29 +55,31 @@ export function create(req, res, next) {
 /**
  * Get a single user
  */
-export function show(req, res, next) {
+exports.show = function (req, res, next) {
   var userId = req.params.id;
 
   User.find({
     where: {
-      _id: userId
+      id: userId
     }
   })
-    .then(user => {
-      if (!user) {
+    .then(function(user){
+      if (!user){
         return res.status(404).end();
       }
       res.json(user.profile);
     })
-    .catch(err => next(err));
+    .catch(function(err){
+      return next(err);
+    })
 }
 
 /**
  * Deletes a user
  * restriction: 'admin'
  */
-export function destroy(req, res) {
-  User.destroy({ _id: req.params.id })
+exports.destroy = function (req, res) {
+  User.destroy({ id: req.params.id })
     .then(function() {
       res.status(204).end();
     })
@@ -89,22 +89,23 @@ export function destroy(req, res) {
 /**
  * Change a users password
  */
-export function changePassword(req, res, next) {
-  var userId = req.user._id;
+exports.changePassword = function(req, res, next) {
+  var userId = req.user.id;
   var oldPass = String(req.body.oldPassword);
   var newPass = String(req.body.newPassword);
 
   User.find({
     where: {
-      _id: userId
+      id: userId
     }
   })
-    .then(user => {
+
+    .then(function(user){
       if (user.authenticate(oldPass)) {
         user.password = newPass;
         return user.save()
-          .then(() => {
-            res.status(204).end();
+          .then(function(){
+            return res.status(204).end();
           })
           .catch(validationError(res));
       } else {
@@ -116,33 +117,34 @@ export function changePassword(req, res, next) {
 /**
  * Get my info
  */
-export function me(req, res, next) {
-  var userId = req.user._id;
+exports.me = function(req, res, next) {
+  var userId = req.user.id;
 
   User.find({
     where: {
-      _id: userId
+      id: userId
     },
     attributes: [
-      '_id',
+      'id',
       'name',
       'email',
       'role',
       'provider'
     ]
   })
-    .then(user => { // don't ever give out the password or salt
-      if (!user) {
-        return res.status(401).end();
-      }
+    .then(function(user){
+      if (!user) return res.status(401).end();
       res.json(user);
     })
-    .catch(err => next(err));
+
+    .catch(function(err){
+      return next(err);
+    });
 }
 
 /**
  * Authentication callback
  */
-export function authCallback(req, res, next) {
+exports.authCallback = function(req, res, next) {
   res.redirect('/');
 }

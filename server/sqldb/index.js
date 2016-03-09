@@ -17,7 +17,7 @@ var db = {
 
 
 var models = [
-  'User', 'Thing'
+  'User'
   // 'Post', 					'Draft',
   // 'Team', 					'Game',
   // 'User', 					'Participant',
@@ -30,16 +30,15 @@ var set_database_so_hard = function(){
 
   models.forEach(function(model) {
 		if (!db[model]){
-			db[model] = db.sequelize.import('../api/' + model + '/' + model + '.model');
+			db[model] = db.sequelize.import('../api/' + model + '/' + model + '.model.js');
 			db[model].sync();
 		}
 	})
-
-};
-// // Insert models below
+}();
+// Insert models below
 // db.Match = db.sequelize.import('../api/match/match.model');
-// // db.Thing = db.sequelize.import('../api/thing/thing.model');
-// // db.User = db.sequelize.import('../api/user/user.model');
+// db.Thing = db.sequelize.import('../api/thing/thing.model');
+// db.User = db.sequelize.import('../api/user/user.model');
 // set_database_so_hard();
 
 module.exports = db;

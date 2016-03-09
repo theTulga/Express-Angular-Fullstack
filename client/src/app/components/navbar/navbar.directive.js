@@ -19,9 +19,6 @@
 
     /** @ngInject */
     function NavbarController() {
-      var vm = this;
-
-      // "vm.creation" is avaible by directive option "bindToController: true"
       
     }
   }

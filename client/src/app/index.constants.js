@@ -8,7 +8,7 @@
     },
     dev: {
       host: 'http://localhost',
-      port: ':8080/api'
+      port: ':8081/api'
     },
     env: 'dev'
   }
