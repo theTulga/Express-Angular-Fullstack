@@ -15,13 +15,14 @@ var express = require('express'),
     lusca = require('lusca'),
     passport = require('passport'),
     session = require('express-session'),
-    RedisStore = require('connect-redis')(session)
-
+    expressSequelizeSession = require('express-sequelize-session')
+var Store = expressSequelizeSession(session.Store);
 var config = require('./environment'),
-    sqldb = require('../sqldb')
+    sqldb = require('../sqldb');
 
 module.exports = function(app) {
   var env = app.get('env');
+
   app.set('views', config.root + '/server/views');
   app.engine('html', require('ejs').renderFile);
   app.set('view engine', 'html');
@@ -29,23 +30,19 @@ module.exports = function(app) {
   app.use(bodyParser.urlencoded({ extended: false }));
   app.use(bodyParser.json());
   app.use(cookieParser());
+  app.use(passport.initialize());
   app.use(session({
-    cookie: {
-      secure: true
-    },
-    module: 'connect-redis',
     secret: config.secrets.session,
-    resave: false,
     saveUninitialized: true,
-    store: new RedisStore({
-      host: '127.0.0.1'
-    })
+    resave: false,
+    store: new Store(sqldb.sequelize)
   }));
+
   if ('test' !== env) {
     app.use(lusca({
-      // csrf: {
-      //   angular: true
-      // },
+      csrf: {
+        angular: true
+      },
       xframe: 'SAMEORIGIN',
       hsts: {
         maxAge: 31536000, //1 year, in seconds
@@ -55,8 +52,6 @@ module.exports = function(app) {
       xssProtection: true
     }));
   }
-  app.use(passport.initialize());
-  app.use(passport.session());
 
   /**
    * Lusca - express server security
