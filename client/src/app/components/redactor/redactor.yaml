@@ -1,0 +1,18 @@
+Order and choose your buttons
+buttons:
+  - formatting
+  - bold
+  - italic
+  - deleted
+  - unorderedlist
+  - orderedlist
+  - outdent
+  - indent
+  - image_dir
+  - file
+  - video
+  - table
+  - link
+  - horizontalrule
+  - alignment
+  - orderedlist

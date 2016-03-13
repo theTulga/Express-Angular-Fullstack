@@ -6,19 +6,25 @@
     <pre> {{SS.user | json}} </pre>
     <div class="col-sm-12">
 
-      <form class="form" name="form" ng-submit="SS.register()" novalidate>
-        <div class="alert alert-success" role="alert" >
+      <form class="form" name="form" ng-submit="SS.check()" novalidate>
+        <!-- MESSAGES -->
+        <div class="alert alert-success" role="alert" ng-show='SS.success'>
           <strong> Success! </strong>
-          Your account has just created! You can log in now
+          Your account has just created!
         </div>
-        <div class="alert alert-danger" role="alert" >
+        <div class="alert alert-danger" role="alert" ng-show='SS.error'>
           <strong> Error! </strong>
-          We were not able to create your account for some reason
+          We were not able to create your account for some reason.
         </div>
+        <div class="alert alert-danger" role="alert" ng-show='SS.differentPassword'>
+          <strong> Error! </strong>
+          Passwords doesn't match!
+        </div>
+
         <!-- USERNAME -->
         <div class="form-group">
-          <label>Name</label>
-          <input type="text" name="name" class="form-control" ng-model="SS.user.name">
+          <label>Username</label>
+          <input type="text" name="name" class="form-control" ng-model="SS.user.username">
         </div>
 
         <!-- Email -->

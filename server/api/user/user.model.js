@@ -9,7 +9,7 @@ module.exports = function(sequelize, DataTypes) {
       primaryKey: true,
       autoIncrement: true
     },
-    name: DataTypes.STRING,
+    username: DataTypes.STRING,
     email: {
       type: DataTypes.STRING,
       unique: {
@@ -29,9 +29,9 @@ module.exports = function(sequelize, DataTypes) {
         notEmpty: true
       }
     },
-    provider: DataTypes.STRING,
-    facebook: DataTypes.TEXT
-  });
+
+  }
+);
 
   return User;
 };

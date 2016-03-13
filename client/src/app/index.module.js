@@ -10,7 +10,20 @@
                             'ngAria',
                             'ngResource',
                             'ui.router',
-                            'ui.bootstrap'
-                            ]);
+                            'ui.bootstrap',
+                            'angular-redactor'
+                            ])
+
+    .directive("redactor", function(){
+    return {
+        restrict: "C",
+        require: "?ngModel",
+        link: function(scope, element, attrs){
+            element.redactor({
+                focus: true
+            });
+        }
+    }
+});
 
 })();

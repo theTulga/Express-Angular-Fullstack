@@ -35,10 +35,10 @@ var set_database_so_hard = function(){
 		}
 	})
 }();
+
 // Insert models below
 // db.Match = db.sequelize.import('../api/match/match.model');
 // db.Thing = db.sequelize.import('../api/thing/thing.model');
 // db.User = db.sequelize.import('../api/user/user.model');
-// set_database_so_hard();
 
 module.exports = db;

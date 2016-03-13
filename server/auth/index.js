@@ -1,10 +1,10 @@
-var User = require('../sqldb').User;
-var config = require('../config/environment')
-var express = require('express')
-var router = express.Router()
+var LocalStrategy = require('passport-local').Strategy
+var express       = require('express')
 
-require('./local/passport').setup(User, config);
-router.use('/local', require('./local'));
+exports['default'] = function(app, passport) {
+  var router = express.Router();
+  app.use('/api/auth/local', require('./local')(passport))
+  return router;
+}
 
-exports['default'] = router;
 module.exports = exports['default'];
