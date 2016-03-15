@@ -6,7 +6,7 @@
         Start Bootstrap
       </li>
       <li>
-        <a ui-sref="admin.newPost">New Post</a>
+        <a ui-sref="admin.post">New Post</a>
       </li>
       <!-- <li>
         <a ui-sref="admin.newTeam">New Team</a>
@@ -27,9 +27,8 @@
   <div>
     <h1 style='text-align: center;'> Welcome To Admin Panel </h1>
   </div>
-  <div class="textBox">
-    <textarea ng-model="content" redactor="{plugins: ['imagemanager', 'source']}" cols="30" rows="10"></textarea>
-  </div>
+  <div ui-view> </div>
+
 
 <script>
   $("#menu-toggle").click(function(e) {

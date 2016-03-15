@@ -17,7 +17,7 @@ var db = {
 
 
 var models = [
-  'User'
+  'User', 'Post', 'Team'
   // 'Post', 					'Draft',
   // 'Team', 					'Game',
   // 'User', 					'Participant',

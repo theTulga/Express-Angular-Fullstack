@@ -1,0 +1,29 @@
+<form ng-submit="PP.submit()" enctype="multipart/form-data">
+  <div class='textBox'>
+    <div class='row'>
+      <div class='col-md-6'>
+        <div class='form-group'>
+          <label>Мэдээний Гарчиг:</label>
+          <input type="text" class="form-control" ng-model="PP.post.title">
+        </div>
+      </div>
+      <div class='col-md-6'>
+        <div class="form-group">
+          <label>Category:</label>
+          <select class="form-control" ng-model="PP.post.category">
+            <option value=""></option>
+            <option value="dota">DotA</option>
+            <option value="csgo">CS:GO</option>
+            <option value="lol">LoL</option>
+          </select>
+        </div>
+      </div>
+    </div>
+    <textarea ng-model="PP.post.content" redactor></textarea>
+  </div>
+
+  <div class='col-md-6'>
+    <button type="submit" class="btn btn-default submit">Оруулах</button>
+  </div>
+
+</form>

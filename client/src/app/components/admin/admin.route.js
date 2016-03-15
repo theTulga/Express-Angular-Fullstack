@@ -7,16 +7,19 @@
       $stateProvider
         .state('admin', {
           url: '/admin',
-          templateUrl: 'app/components/admin/admin.html'
-          // controller: 'AdminController',
-          // controllerAs: 'AA'
+          templateUrl: 'app/components/admin/admin.html',
+          controller: 'AdminController',
+          controllerAs: 'AA'
         })
-        // .state('signup', {
-        //   url: '/signup',
-        //   templateUrl: 'app/components/account/signup/signup.html',
-        //   controller: 'SignUpController',
-        //   controllerAs: 'SS'
-        // })
+        .state('admin.post', {
+          url: '/post',
+          templateUrl: 'app/components/admin/post/post.html',
+          controller: 'PostController',
+          controllerAs: 'PP'
+        })
     })
+    // .config(function(redactorOptions) {
+    //   redactorOptions.buttons = ['formatting', 'bold', 'italic', 'image'];
+    // })
 
 })()
