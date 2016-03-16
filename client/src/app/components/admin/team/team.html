@@ -1,0 +1,61 @@
+<div class="container" id="toporino">
+  <div class="row">
+    <div class="col-md-6">
+      <form ng-submit="TT.submit()" enctype="multipart/form-data">
+        <div class='row'>
+
+          <div class='col-md-6'>
+            <div class="form-group">
+              <label for="usr">Багийн Нэр:</label>
+              <input type="text" class="form-control" ng-model="TT.team.title">
+            </div>
+          </div>
+
+          <div class='col-md-6'>
+            <div class="form-group">
+              <label> Багийн Лого: </label>
+              <input type="file" name="logo" file-model="TT.team.logo">
+            </div>
+          </div>
+        </div>
+
+        <div class='row'>
+          <div class='col-md-6'>
+            <div class="form-group">
+              <label> Багийн Спонсор: </label>
+              <input type="text" class="form-control" ng-model="TT.team.sponsor">
+            </div>
+          </div>
+          <div class='col-md-6'>
+            <div class="form-group">
+              <label>Багийн бүс нутаг:</label>
+              <select class="form-control" ng-model="TT.team.region">
+                <option value="">Choose Region</option>
+                <option value="america">Americas</option>
+                <option value="europe">Europe</option>
+                <option value="sea">SE Asia</option>
+                <option value="china">China</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <div class='row'>
+          <div class='col-md-6'>
+            <div class="form-group">
+              <label> Багийн Эзэн: </label>
+              <input type="text" class="form-control" ng-model="TT.team.owner">
+            </div>
+            <button style="left: 35%; position:relative;" type="submit" class="btn btn-default">Оруулах</button>
+          </div>
+          <div class='col-md-6'>
+            <div class="form-group">
+              <label>Багийн танилцуулга:</label>
+              <textarea class="form-control" rows="5" ng-model="TT.team.description"></textarea>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

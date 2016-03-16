@@ -17,9 +17,18 @@
           controller: 'PostController',
           controllerAs: 'PP'
         })
+        .state('admin.team', {
+          url: '/team',
+          templateUrl: 'app/components/admin/team/team.html',
+          controller: 'TeamController',
+          controllerAs: 'TT'
+        })
+        .state('admin.match', {
+          url: '/match',
+          templateUrl: 'app/components/admin/match/match.html',
+          controller: 'MatchController',
+          controllerAs: 'MM'
+        })
     })
-    // .config(function(redactorOptions) {
-    //   redactorOptions.buttons = ['formatting', 'bold', 'italic', 'image'];
-    // })
 
 })()

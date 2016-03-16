@@ -11,7 +11,8 @@
                             'ngResource',
                             'ui.router',
                             'ui.bootstrap',
-                            'angular-redactor'
+                            'angular-redactor',
+                            'ui.bootstrap.datetimepicker'
                             ])
 
 })();

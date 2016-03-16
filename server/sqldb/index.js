@@ -17,7 +17,7 @@ var db = {
 
 
 var models = [
-  'User', 'Post', 'Team'
+  'User', 'Post', 'Team', 'Match'
   // 'Post', 					'Draft',
   // 'Team', 					'Game',
   // 'User', 					'Participant',
@@ -34,6 +34,22 @@ var set_database_so_hard = function(){
 			db[model].sync();
 		}
 	})
+}();
+
+var set_relations = function(){
+  var Team = db.Team,
+      Match = db.Match
+      // Tournament = db.Tournament
+
+
+  Team.hasMany(Match, {as: 'fMatches', foreignKey: 'fTeam_id'})
+  Match.belongsTo(Team, {as: 'fTeam', foreignKey: 'fTeam_id'})
+
+  Team.hasMany(Match, {as: 'sMatches', foreignKey: 'sTeam_id'})
+  Match.belongsTo(Team, {as: 'sTeam', foreignKey: 'sTeam_id'})
+
+  // Tournament.hasMany(Match, {as: 'matches', foreignKey: 'tournament_id'})
+  // Match.belongsTo(Tournament, {as: 'tournament', foreignKey: 'tournament_id'})
 }();
 
 // Insert models below
