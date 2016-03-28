@@ -5,7 +5,11 @@ var User        = require('../../sqldb').User
 var bcrypt      = require('bcrypt-nodejs');
 
 exports['default'] = function(passport){
-  console.log('google!')
+  router.use('/logout', function(req, res, next) {
+    req.logout();
+    res.redirect('/');
+  })
+
   router.post('/login', function(req, res, next) {
     passport.authenticate('local', function(err, user, info) {
       var error = err || info;
@@ -15,17 +19,24 @@ exports['default'] = function(passport){
       if (!user) {
         return res.status(404).json({message: 'Something went wrong, please try again.'});
       }
-      res.status(200).json({ message: 'Successfully logged in.' });
+      req.login(user, function(err) {
+        if (err) { return next(err); }
+        return null;
+      });
+      return res.status(200).json({ message: 'Successfully logged in.' });
+
     })(req, res, next)
   })
 
   router.get('/', function(req, res) {
+    console.log('req.user',req.user)
     if (req.isAuthenticated()) res.status(200).send('true')
     else                       res.status(401).send('false')
   })
 
   router.post('/', function(req, res, next){
     var newUser = User.build(req.body);
+    newUser.setDataValue('password', bcrypt.hashSync(req.body.password, null, null))
     newUser.setDataValue('provider', 'local');
     newUser.setDataValue('role', 'user');
     newUser.save()
@@ -36,6 +47,7 @@ exports['default'] = function(passport){
           }
         })
         res.status(200).json({ message: 'success' });
+        return null;
       })
       .catch(function(err) {
         if (err){

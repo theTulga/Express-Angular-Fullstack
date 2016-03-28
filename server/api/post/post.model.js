@@ -9,17 +9,13 @@ module.exports = function(sequelize, DataTypes) {
     title: DataTypes.STRING,
     category: DataTypes.STRING,
     content: DataTypes.TEXT,
-    date: {
-      type: DataTypes.DATE,
-      defaultValue: DataTypes.NOW
-    },
     top: {
       type: DataTypes.BOOLEAN,
       defaultValue: false
-    }
+    },
+    pic: DataTypes.STRING
 
   }
 );
-
   return Model;
 };

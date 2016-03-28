@@ -26,7 +26,7 @@
         return moment(givenTime).fromNow(true)
       }
 
-      send.request('/get/matches', 'GET').then(function(res){
+      send.request('/match/list', 'GET').then(function(res){
         vm.matches = res;
       }, function(err){
         $log.debug(err);

@@ -1,3 +1,35 @@
 .acme-navbar-text{
   color: white;
 }
+
+.navbar-custom {
+  color: #777777;
+  background-color: $dark_gray;
+  border: 0px;
+}
+
+.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active >
+ a:hover, .navbar-default .navbar-nav > .active > a:focus {
+  color: white; /*BACKGROUND color for active*/
+  background-color: #393939;
+}
+
+.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
+  color: #000;  /*Sets the text hover color on navbar*/
+}
+
+.navbar-default .navbar-nav > li > a, .navbar-default .navbar-nav > li > a {
+  font-family: Open Sans, sans-serif;
+  color: #777777;  /*Sets the text hover color on navbar*/
+}
+
+.dropdown-menu > li > a:hover,
+.dropdown-menu > li > a:focus {
+  color: #FFFFFF;
+  text-decoration: none;
+  background-color: #66CCFF;  /*change color of links in drop down here*/
+}
+
+.search-button {
+  height: 34px;
+}

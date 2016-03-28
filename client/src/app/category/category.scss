@@ -1,0 +1,28 @@
+.logo-image {
+	width: 40%;
+}
+
+.content_white h2 {
+	padding-bottom: 15px;
+	border-bottom:4px solid #e9e8e8;
+}
+
+.content_white p, .content_white h2 a{
+  color: #3A3A3A;
+}
+
+.content_white {
+  background-color: #fafafa;
+  padding: 25px;
+}
+
+.content_white > .starter-template > .m img {
+	width: 100%;
+}
+
+.yellow_button {
+  text-transform: uppercase;
+  padding: 10px 16px;
+  border: none;
+  background: linear-gradient(to bottom, #f9cc19 0%,#e0b300 100%);
+}

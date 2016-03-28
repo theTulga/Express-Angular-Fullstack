@@ -12,7 +12,9 @@
                             'ui.router',
                             'ui.bootstrap',
                             'angular-redactor',
-                            'ui.bootstrap.datetimepicker'
+                            'ui.bootstrap.datetimepicker',
+                            'angularMoment',
+                            'ksSwiper'
                             ])
 
 })();

@@ -4,6 +4,7 @@ var router = new Router();
 
 router.get('/', controller.index);
 router.post('/', controller.create);
+router.get('/top', controller.top);
 router.get('/:id', controller.show);
 
 // router.delete('/:id', controller.destroy);

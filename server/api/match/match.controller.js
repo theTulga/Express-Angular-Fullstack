@@ -16,6 +16,26 @@ exports.index = function(req, res, next){
     }).catch(handleError(res));
 }
 
+exports.list = function(req, res, next){
+  Match.findAll({
+    where: {
+      ended: false,
+    },
+    limit: 10,
+    include: [{
+        model: Team,
+        as:    'fTeam'
+      }, {
+        model: Team,
+        as:    'sTeam'
+      }]
+  })
+    .then(function (matchs) {
+      res.status(200).json(matchs);
+      return null;
+    }).catch(handleError(res));
+}
+
 exports.create = function (req, res, next) {
 
   var newMatch = Match.build(req.body);
