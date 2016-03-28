@@ -67,3 +67,31 @@ exports.show = function (req, res, next) {
       return next(err);
     });
 }
+
+var categories = ['*(&@&!)', 'dota', 'csgo', 'lol'];
+
+exports.category = function (req, res, next) {
+  var category = req.params.category;
+  if (categories.indexOf(category))
+    Post.findAll({
+      where: {
+        category: category
+      }
+    })
+      .then(function (item) {
+        if (!item) {
+          return res.status(404).end();
+        }
+        res.json(item);
+        return null;
+      })
+      .catch(function (err) {
+        return next(err);
+      });
+
+  else {
+    console.log('categories.indexOf(category)',categories.indexOf(category) )
+    console.log('ELSE!',category);
+    res.status(404).end();
+  }
+}

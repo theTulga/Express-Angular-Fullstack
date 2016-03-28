@@ -10,11 +10,18 @@
     $stateProvider
       .state('main', {
         abstract: true,
-        url: '/',
+        url: '',
         templateUrl: 'app/main/main.html',
         controller: 'MainController',
         controllerAs: 'MM'
       })
+      .state('main.homepage', {
+        url: '/',
+        templateUrl: 'app/main/homePage.html',
+        controller: 'HomepageController',
+        controllerAs: 'HH'
+      })
+
       .state('admin', {
         url: '/admin',
         templateUrl: 'app/admin/admin.html',
@@ -25,12 +32,17 @@
         }
       })
       .state('main.category', {
-        url: ':category',
+        url: '/category/:category',
         templateUrl: 'app/category/category.html',
         controller: 'CategoryController',
         controllerAs: 'CC'
       })
-
+      .state('main.post', {
+        url: '/post/:id',
+        templateUrl: 'app/post/post.html',
+        controller: 'PostController',
+        controllerAs: 'PP'
+      })
 
     $urlRouterProvider.otherwise('/');
     $locationProvider.html5Mode(true);

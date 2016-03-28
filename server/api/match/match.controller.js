@@ -42,9 +42,10 @@ exports.create = function (req, res, next) {
   newMatch.save()
     .then(function (user) {
       res.json({ message: 'Success' });
+      return null
     }).catch(function(err) {
-      console.log('err in newMatch.save()',err)
       handleError(res);
+      return null
     });
 }
 
@@ -68,6 +69,7 @@ exports.show = function (req, res, next) {
         return res.status(404).end();
       }
       res.json(item);
+      return null;
     })
     .catch(function (err) {
       return next(err);

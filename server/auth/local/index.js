@@ -13,17 +13,12 @@ exports['default'] = function(passport){
   router.post('/login', function(req, res, next) {
     passport.authenticate('local', function(err, user, info) {
       var error = err || info;
-      if (error) {
-        return res.status(401).json(error);
-      }
-      if (!user) {
-        return res.status(404).json({message: 'Something went wrong, please try again.'});
-      }
+      if (error) return res.status(401).json(error)
+      if (!user) return res.status(404).json({message: 'Something went wrong, please try again.'})
       req.login(user, function(err) {
-        if (err) { return next(err); }
-        return null;
+        if (err)  return next(err)
+        res.status(200).json({ message: 'Successfully logged in.' })
       });
-      return res.status(200).json({ message: 'Successfully logged in.' });
 
     })(req, res, next)
   })

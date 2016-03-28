@@ -8,6 +8,19 @@
   margin-left: 10px;
 }
 
+.navbar-custom2 .navbar-nav > li{
+  color: white;
+}
+
+.navbar-custom2 .navbar-nav > a:hover {
+  color: white;
+  background-color: #0092D0;
+}
+
+.navbar-custom2 .navbar-nav > li > a:hover {
+  background-color: #0092D0;
+}
+
 .acme-navbar-text{
   color: white;
 }
@@ -59,7 +72,7 @@
 
 
 .navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
-  color: #000;  /*Sets the text hover color on navbar*/
+  color: white;  /*Sets the text hover color on navbar*/
 }
 
 .navbar-default .navbar-nav > li > a, .navbar-default .navbar-nav > li > a {

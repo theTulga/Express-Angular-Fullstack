@@ -3,15 +3,15 @@
 
   angular
     .module('webProject')
-    .controller('PostController', PostController);
+    .controller('HomepageController', HomepageController);
 
   /** @ngInject */
-  function PostController(send, $log, $stateParams) {
+  function HomepageController(config, send, $log) {
     var vm = this;
-    vm.post = {};
-    send.request('/post/' + $stateParams.id, 'GET')
+    vm.posts = [];
+    send.request('/post', 'GET')
       .then(function(res) {
-        vm.post = res;
+        vm.posts = res;
       }, function(err) {
         $log.debug(err);
       })

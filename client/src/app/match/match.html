@@ -1,0 +1,37 @@
+<div class='row'>
+  <div class='col-md-12'>
+      <div class='match_wrapper'>
+        <div class='opponents' style='padding-top: 50px;'>
+          <h1 style='text-align: center;'> ESL LAN FINAL </h1>
+        </div>
+
+        <div class='opponent_data'>
+          <div class='row'>
+            <div class='col-md-5'>
+              <a href='/#/'><label class='nameLeft'>{{MaMa.match.fTeam.title}}</label> </a>
+              <img class='team_logo_left' src='/api/images/{{MaMa.match.fTeam.logo}}'>
+            </div>
+
+            <div class='col-md-2' style='text-align: center;'>
+              <label ng-if='MaMa.match.bestof' > Best Of {{MaMa.match.gameSeries}} </label>
+              <p> {{MaMa.match.date | date}} </p>
+              <p> {{MaMa.match.date | date : 'H:mm'}} </p>
+              <p> VS </p>
+              <!-- <label ng-if='MaMa.match[0].ended' style='padding-left: 41%'> {{MaMa.match}} : {{MaMa.match[0].score2}} </label> -->
+            </div>
+            <div class='col-md-5'>
+              <img class='team_logo_right' src='/api/images/{{MaMa.match.sTeam.logo}}'>
+              <a href='/#/'><label class='nameRight'>{{MaMa.match.sTeam.title}}</label> </a>
+            </div>
+          </div>
+        </div>
+      </div>
+        <div class='streams'>
+
+        </div>
+          <!-- <iframe src="http://player.twitch.tv/?channel=dotademon" frameborder="0" scrolling="no" height="378" width="620"></iframe> -->
+
+
+          <pre> {{MaMa.match | json}} </pre>
+  </div>
+</div>

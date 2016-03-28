@@ -8,7 +8,7 @@
     /** @ngInject */
     function CategoryController (send, $log, $stateParams){
       var vm = this;
-      vm.url =  $stateParams.category ? '/post/' + $stateParams.category : '/post';
+      vm.url = '/post/category/' + $stateParams.category;
       vm.posts = [];
       send.request(vm.url, 'GET')
         .then(function(res) {

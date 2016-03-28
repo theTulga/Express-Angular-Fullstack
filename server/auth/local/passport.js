@@ -15,29 +15,32 @@ module.exports = function(passport) {
     usernameField: 'username',
     passwordField: 'password'
   }, function(username, password, done) {
-    return User.find({
-      where: {
-        username: username.toLowerCase()
-      }
-    })
+    User.find({
+        where: {
+          username: username.toLowerCase()
+        }
+      })
       .then(function(user) {
         if (!user) {
-          done(null, false, { message: 'This username is not registered.' })
-
+          return done(null, false, {
+            message: 'This username is not registered.'
+          })
         }
-        if (!bcrypt.compareSync(password, user.password)){
-          done(null, false, { message: 'This password is not correct.' })
-
+        if (!bcrypt.compareSync(password, user.password)) {
+          return done(null, false, {
+            message: 'This password is not correct.'
+          })
         } else {
           done(null, user)
-
+          return null;
         }
-
+      })
+      .then(function(data1, data2) {
+        console.log('2nd DATA', data1, data2);
       })
       .catch(function(err) {
         done(err)
-        
       })
+    return null;
   }))
-
 }
