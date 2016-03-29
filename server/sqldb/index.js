@@ -2,7 +2,6 @@
  * Sequelize initialization module
  */
 
-'use strict';
 var config = require('../config/environment')
 var Sequelize = require('sequelize')
 
