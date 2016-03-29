@@ -1,5 +1,5 @@
 module.exports = function(sequelize, DataTypes) {
-  return sequelize.define('Team', {
+  return sequelize.define('Tournament', {
     id: {
       type: DataTypes.INTEGER,
       primaryKey: true,
@@ -10,26 +10,15 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.STRING,
       defaultValue: null
     },
-    region: {
-      type: DataTypes.STRING,
-      defaultValue: null
-    },
-    owner: {
-      type: DataTypes.TEXT,
-      defaultValue: null
-    },
-    sponsor: {
-      type: DataTypes.STRING,
-      defaultValue: null
-    },
-    description: {
-      type: DataTypes.STRING,
-      defaultValue: null
-    },
+    prizePool: DataTypes.INTEGER,
+    sDate: DataTypes.DATE,
+    eDate: DataTypes.DATE,
     logo: {
       type: DataTypes.STRING,
       defaultValue: null
-    }
+    },
+    tPrice: DataTypes.INTEGER,
+    cPrice: DataTypes.INTEGER
   }, {
     timestamps: true
   });

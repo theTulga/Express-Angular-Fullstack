@@ -17,8 +17,8 @@ var db = {
 
 
 var models = [
-  'User', 'Post', 'Team', 'Match'
-  // 'Post', 					'Draft',
+  'User', 'Post', 'Team', 'Match',
+  'Tournament'
   // 'Team', 					'Game',
   // 'User', 					'Participant',
   // 'Match', 					'Prize',
@@ -38,8 +38,8 @@ var set_database_so_hard = function(){
 
 var set_relations = function(){
   var Team = db.Team,
-      Match = db.Match
-      // Tournament = db.Tournament
+      Match = db.Match,
+      Tournament = db.Tournament
 
 
   Team.hasMany(Match, {as: 'fMatches', foreignKey: 'fTeam_id'})
@@ -48,13 +48,9 @@ var set_relations = function(){
   Team.hasMany(Match, {as: 'sMatches', foreignKey: 'sTeam_id'})
   Match.belongsTo(Team, {as: 'sTeam', foreignKey: 'sTeam_id'})
 
-  // Tournament.hasMany(Match, {as: 'matches', foreignKey: 'tournament_id'})
-  // Match.belongsTo(Tournament, {as: 'tournament', foreignKey: 'tournament_id'})
-}();
+  Tournament.hasMany(Match, {as: 'matches', foreignKey: 'tournament_id'})
+  Match.belongsTo(Tournament, {as: 'tournament', foreignKey: 'tournament_id'})
 
-// Insert models below
-// db.Match = db.sequelize.import('../api/match/match.model');
-// db.Thing = db.sequelize.import('../api/thing/thing.model');
-// db.User = db.sequelize.import('../api/user/user.model');
+}();
 
 module.exports = db;
