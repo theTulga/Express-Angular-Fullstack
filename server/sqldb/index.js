@@ -6,7 +6,7 @@ var config = require('../config/environment')
 var Sequelize = require('sequelize')
 
 var db = {
-  Sequelize,
+  Sequelize:  Sequelize,
   sequelize: new Sequelize(
     config.sequelize.database,
     config.sequelize.user,
