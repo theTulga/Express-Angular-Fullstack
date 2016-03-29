@@ -28,7 +28,7 @@ exports['default'] = function(app, passport) {
   app.use('/api/post', upload.single('pic'), require('./api/post'))
   app.use('/api/match', require('./api/match'))
   app.use('/api/team', upload.single('logo'), require('./api/team'))
-  app.use('/api/tournament', upload.single('logo'), require('./api/tournament'))
+  app.use('/api/tournament', upload.single('file'), require('./api/tournament'))
 
 
   // app.use('/api/user', require('./api/user'))

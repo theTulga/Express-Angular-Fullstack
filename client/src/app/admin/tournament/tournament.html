@@ -1,0 +1,54 @@
+<div class="container" id="toporino">
+  <div class="row">
+    <div class="col-md-6">
+      <form ng-submit="aTT.submit()" enctype="multipart/form-data">
+        <div class='row'>
+
+          <div class='col-md-6'>
+            <div class="form-group">
+              <label for="usr"> Тэмцээний Нэр:</label>
+              <input type="text" class="form-control" ng-model="aTT.tournament.title">
+            </div>
+
+            <div class="form-group">
+              <label> Тэмцээ Спонсор: </label>
+              <input type="text" class="form-control" ng-model="aTT.tournament.sponsor">
+            </div>
+
+            <div class="form-group">
+              <label> Багийн Эзэн: </label>
+              <input type="text" class="form-control" ng-model="aTT.tournament.owner">
+            </div>
+            <button style="left: 35%; position:relative;" type="submit" class="btn btn-default">Оруулах</button>
+
+          </div>
+
+          <div class='col-md-6'>
+            <div class="form-group">
+              <label> Тэмцээний Лого: </label>
+              <input type="file" name="file" file-model="aTT.tournament.file">
+            </div>
+            <div class="form-group">
+              <label>Багийн бүс нутаг:</label>
+              <select class="form-control" ng-model="aTT.tournament.region">
+                <option value="">Choose Region</option>
+                <option value="america">Americas</option>
+                <option value="europe">Europe</option>
+                <option value="sea">SE Asia</option>
+                <option value="china">China</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Багийн танилцуулга:</label>
+              <textarea class="form-control" rows="5" ng-model="aTT.tournament.description"></textarea>
+            </div>
+
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class='col-md-6'>
+      <pre> {{aTT.tournament | json}} </pre>
+    </div>
+  </div>
+</div>

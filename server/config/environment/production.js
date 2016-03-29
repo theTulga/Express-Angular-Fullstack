@@ -7,7 +7,7 @@ module.exports = {
   // Sequelize connection opions
   sequelize: {
     uri: 'sqlite://',
-    database: 'webProject',
+    database: 'esports',
     user: 'root',
     pass: 'rooterino',
     options: {

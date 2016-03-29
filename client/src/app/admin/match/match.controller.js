@@ -3,7 +3,7 @@
 
   angular
     .module('webProject')
-    .controller('createMatchController', MatchController);
+    .controller('aMatchController', MatchController);
 
   /** @ngInject */
   function MatchController($log, send) {

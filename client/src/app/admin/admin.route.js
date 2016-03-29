@@ -20,8 +20,14 @@
         .state('admin.match', {
           url: '/match',
           templateUrl: 'app/admin/match/match.html',
-          controller: 'createMatchController',
-          controllerAs: 'MM'
+          controller: 'aMatchController',
+          controllerAs: 'aMM'
+        })
+        .state('admin.tournament', {
+          url: '/tournament',
+          templateUrl: 'app/admin/tournament/tournament.html',
+          controller: 'aTournamentController',
+          controllerAs: 'aTT'
         })
     })
 

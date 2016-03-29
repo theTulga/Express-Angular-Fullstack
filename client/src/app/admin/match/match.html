@@ -1,12 +1,12 @@
 <div class="container" id="toporino">
   <div class="row">
     <div class="col-md-12">
-      <form ng-submit="MM.submit()" enctype="multipart/form-data">
+      <form ng-submit="aMM.submit()" enctype="multipart/form-data">
         <div class='row'>
           <div class='col-md-3'>
             <div class="form-group">
               <label>Тоглох баг 1:</label>
-              <select class="form-control" ng-model="MM.team1" ng-options="team as team.title for team in MM.teams">
+              <select class="form-control" ng-model="aMM.team1" ng-options="team as team.title for team in aMM.teams">
                 <option value=""> Choose Team </option>
 
               </select>
@@ -15,7 +15,7 @@
           <div class='col-md-3'>
             <div class="form-group">
               <label>Тоглох баг 2:</label>
-              <select class="form-control" ng-model="MM.team2" ng-options="team as team.title for team in MM.teams">
+              <select class="form-control" ng-model="aMM.team2" ng-options="team as team.title for team in aMM.teams">
                 <option value=""> Choose Team </option>
               </select>
             </div>
@@ -23,7 +23,7 @@
           <div class='col-md-3'>
             <div class="form-group">
               <label>Тоглох тоглолтын тоо</label>
-              <select class="form-control" ng-model="MM.match.gameSeries">
+              <select class="form-control" ng-model="aMM.match.gameSeries">
                 <option value=""> Choose one </option>
                 <option value="1"> Best of 1 </option>
                 <option value="2"> Best of 2 </option>
@@ -41,15 +41,15 @@
             <div class="form-group">
               <label for="usr">Тоглолтын цаг өдөр:</label>
 
-              <datetimepicker ng-model="MM.match.date" ></datetimepicker>
+              <datetimepicker ng-model="aMM.match.date" ></datetimepicker>
             </div>
           </div>
 
           <div class='col-md-6'>
             <div class="form-group">
-              <p>Сонгосон багууд: {{MM.team1.title}} VS {{MM.team2.title }}</p>
-              <p>Хэдэн удаа тоглох: {{ MM.match.gameSeries }}</p>
-              <p>Сонгосон өдөр: {{ MM.match.date | date:'yyyy-MM-dd HH:mm' }}</p>
+               <p>Сонгосон багууд: <strong>{{aMM.team1.title}}</strong> vs <strong>{{aMM.team2.title }}</strong></p>
+               <p>Хэдэн удаа тоглох: <strong>{{ aMM.match.gameSeries }}</strong></p>
+               <p>Сонгосон өдөр: <strong>{{ aMM.match.date | date:'yyyy-MM-dd HH:MM' }} </strong></p>
             </div>
             <button type="submit" class="btn btn-default">Оруулах</button>
           </div>
