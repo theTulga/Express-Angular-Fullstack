@@ -1,5 +1,5 @@
 var express             = require('express'),
-    sqldb               = require('./sqldb')
+    sqldb               = require('./sqldb'),
     config              = require('./config/environment'),
     http                = require('http'),
     favicon             = require('serve-favicon'),
