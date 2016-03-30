@@ -6,10 +6,18 @@ var errors    = require('./components/errors')
 var path      = require('path')
 var config    = require('./config/environment')
 var express   = require('express')
-
 var multer = require('multer')
 
 exports['default'] = function(app, passport) {
+
+
+  app.use(function(req, res, next){
+    res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
+    res.setHeader('Access-Control-Allow-Credentials', true);
+    next();
+  })
   var storage = multer.diskStorage({
     destination: function(req, file, cb) {
       cb(null, __dirname + '/images/')
@@ -24,7 +32,7 @@ exports['default'] = function(app, passport) {
   require('./auth')(app, passport)
 
   app.use('/api/image', upload.single('file'), require('./image_upload'))
-  app.use('/api/images', express.static('./images'))
+  app.use('/api/images', express.static(__dirname + '/images'))
   app.use('/api/post', upload.single('pic'), require('./api/post'))
   app.use('/api/match', require('./api/match'))
   app.use('/api/team', upload.single('logo'), require('./api/team'))

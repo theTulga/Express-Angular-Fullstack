@@ -42,7 +42,7 @@ module.exports = function(app, passport) {
       // csrf: {
       //   angular: true
       // },
-      xframe: '52.25.241.31',
+      xframe: 'SAMEORIGIN',
       hsts: {
         maxAge: 31536000, //1 year, in seconds
         includeSubDomains: true,
