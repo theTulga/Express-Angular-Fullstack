@@ -15,7 +15,7 @@
           url: '/signup',
           templateUrl: 'app/components/account/signup/signup.html',
           controller: 'SignUpController',
-          controllerAs: 'SS'
+          controllerAs: 'Sign'
         })
     })
 
