@@ -3,14 +3,12 @@
 
   var config = {
     app: {
-      host: 'http://52.25.241.31',
-      port: ':80/api'
+      host: 'http://52.25.241.31'
     },
     dev: {
-      host: 'http://localhost:8081/api',
-      port: ':8081/api'
+      host: 'http://localhost:8081'
     },
-    env: 'dev'
+    env: 'prod'
   }
 
   var appConfig = {
