@@ -1,4 +1,4 @@
-var Tournament = require('../../sqldb').Tournament;
+var Tournament = require('../../sqldb').tournament;
 
 function handleError(res, statusCode) {
   statusCode = statusCode || 500;
