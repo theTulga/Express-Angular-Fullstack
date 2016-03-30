@@ -3,10 +3,10 @@
 
   var config = {
     app: {
-      host: 'http://52.25.241.31'
+      host: 'http://52.25.241.31/api'
     },
     dev: {
-      host: 'http://localhost:8081'
+      host: 'http://localhost:8081/api'
     },
     env: 'prod'
   }
