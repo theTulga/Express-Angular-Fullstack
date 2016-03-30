@@ -11,6 +11,9 @@ var app = express();
 
 app.use(function(req, res){
   res.setHeader("Access-Control-Allow-Origin", 'http://52.25.214.31');
+  res.setHeader('Access-Control-Allow-Credentials', true);
+  res.setHeader("Access-Control-Max-Age", "3600");
+  res.setHeader("Access-Control-Allow-Headers", "Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
 })
 
 // require('./auth')(app, passport)
