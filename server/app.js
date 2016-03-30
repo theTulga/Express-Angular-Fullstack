@@ -9,6 +9,10 @@ var express             = require('express'),
 
 var app = express();
 
+app.use(function(req, res){
+  res.setHeader("Access-Control-Allow-Origin", '52.25.214.31');
+})
+
 // require('./auth')(app, passport)
 require('./config/express')(app, passport)
 require('./auth/local/passport')(passport)
