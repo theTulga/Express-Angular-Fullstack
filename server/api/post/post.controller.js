@@ -1,4 +1,4 @@
-var Post = require('../../sqldb').post;
+var Post = require('../../sqldb').Post;
 
 function handleError(res, statusCode) {
   statusCode = statusCode || 500;

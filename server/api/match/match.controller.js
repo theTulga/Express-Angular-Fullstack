@@ -1,6 +1,6 @@
 var sqldb = require('../../sqldb')
-var Match = sqldb.match;
-var Team = sqldb.team;
+var Match = sqldb.Match;
+var Team = sqldb.Team;
 
 function handleError(res, statusCode) {
   statusCode = statusCode || 500;
