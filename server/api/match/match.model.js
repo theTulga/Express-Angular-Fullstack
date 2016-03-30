@@ -1,5 +1,5 @@
 module.exports = function(sequelize, DataTypes) {
-  var Model = sequelize.define('Match', {
+  var Model = sequelize.define('match', {
     id: {
       type: DataTypes.INTEGER,
       primaryKey: true,

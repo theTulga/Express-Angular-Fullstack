@@ -1,5 +1,5 @@
 module.exports = function(sequelize, DataTypes) {
-  var Model = sequelize.define('Post', {
+  var Model = sequelize.define('post', {
     id: {
       type: DataTypes.INTEGER,
       allowNull: false,

@@ -1,6 +1,6 @@
 var sqldb = require('../../sqldb')
-var Match = sqldb.Match;
-var Team = sqldb.Team;
+var match = sqldb.match;
+var team = sqldb.team;
 
 function handleError(res, statusCode) {
   statusCode = statusCode || 500;
@@ -10,24 +10,24 @@ function handleError(res, statusCode) {
 }
 
 exports.index = function(req, res, next){
-  Match.findAll()
+  match.findAll()
     .then(function (matchs) {
       res.status(200).json(matchs);
     }).catch(handleError(res));
 }
 
 exports.list = function(req, res, next){
-  Match.findAll({
+  match.findAll({
     where: {
       ended: false,
     },
     limit: 10,
     include: [{
-        model: Team,
-        as:    'fTeam'
+        model: team,
+        as:    'fteam'
       }, {
-        model: Team,
-        as:    'sTeam'
+        model: team,
+        as:    'steam'
       }]
   })
     .then(function (matchs) {
@@ -38,8 +38,8 @@ exports.list = function(req, res, next){
 
 exports.create = function (req, res, next) {
 
-  var newMatch = Match.build(req.body);
-  newMatch.save()
+  var newmatch = match.build(req.body);
+  newmatch.save()
     .then(function (user) {
       res.json({ message: 'Success' });
       return null
@@ -50,18 +50,18 @@ exports.create = function (req, res, next) {
 }
 
 exports.show = function (req, res, next) {
-  var MatchId = req.params.id;
+  var matchId = req.params.id;
 
-  Match.find({
+  match.find({
     where: {
-      id: MatchId
+      id: matchId
     },
     include: [{
-      model: Team,
-      as:    'fTeam'
+      model: team,
+      as:    'fteam'
     }, {
-      model: Team,
-      as:    'sTeam'
+      model: team,
+      as:    'steam'
     }]
   })
     .then(function (item) {

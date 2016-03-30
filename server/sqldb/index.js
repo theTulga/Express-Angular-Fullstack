@@ -17,12 +17,12 @@ var db = {
 
 
 var models = [
-  'User', 'Post', 'Team', 'Match',
-  'Tournament'
-  // 'Team', 					'Game',
-  // 'User', 					'Participant',
-  // 'Match', 					'Prize',
-	// 'Tournament', 		'Winner',
+  'user', 'post', 'team', 'match',
+  'tournament'
+  // 'team', 					'Game',
+  // 'user', 					'participant',
+  // 'match', 					'prize',
+	// 'tournament', 		'Winner',
 	// 'Stream'
 ];
 var set_database_so_hard = function(){
@@ -30,6 +30,7 @@ var set_database_so_hard = function(){
 
   models.forEach(function(model) {
 		if (!db[model]){
+
 			db[model] = db.sequelize.import('../api/' + model + '/' + model + '.model.js');
 			db[model].sync();
 		}
@@ -37,19 +38,19 @@ var set_database_so_hard = function(){
 }();
 
 var set_relations = function(){
-  var Team = db.Team,
-      Match = db.Match,
-      Tournament = db.Tournament
+  var Team = db.team,
+      Match = db.match,
+      Tournament = db.tournament
 
 
-  Team.hasMany(Match, {as: 'fMatches', foreignKey: 'fTeam_id'})
-  Match.belongsTo(Team, {as: 'fTeam', foreignKey: 'fTeam_id'})
+      Team.hasMany(Match, {as: 'fMatches', foreignKey: 'fTeam_id'})
+      Match.belongsTo(Team, {as: 'fTeam', foreignKey: 'fTeam_id'})
 
-  Team.hasMany(Match, {as: 'sMatches', foreignKey: 'sTeam_id'})
-  Match.belongsTo(Team, {as: 'sTeam', foreignKey: 'sTeam_id'})
+      Team.hasMany(Match, {as: 'sMatches', foreignKey: 'sTeam_id'})
+      Match.belongsTo(Team, {as: 'sTeam', foreignKey: 'sTeam_id'})
 
-  Tournament.hasMany(Match, {as: 'matches', foreignKey: 'tournament_id'})
-  Match.belongsTo(Tournament, {as: 'tournament', foreignKey: 'tournament_id'})
+      Tournament.hasMany(Match, {as: 'matches', foreignKey: 'tournament_id'})
+      Match.belongsTo(Tournament, {as: 'tournament', foreignKey: 'tournament_id'})
 
 }();
 

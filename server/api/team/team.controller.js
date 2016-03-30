@@ -1,4 +1,4 @@
-var Team = require('../../sqldb').Team;
+var Team = require('../../sqldb').team;
 
 function handleError(res, statusCode) {
   statusCode = statusCode || 500;
