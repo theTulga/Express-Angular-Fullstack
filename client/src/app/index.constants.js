@@ -8,7 +8,7 @@
     dev: {
       host: 'http://localhost:8081/api'
     },
-    env: 'dev'
+    env: 'prod'
   }
 
   var appConfig = {
