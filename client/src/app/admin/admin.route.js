@@ -8,8 +8,8 @@
         .state('admin.post', {
           url: '/post',
           templateUrl: 'app/admin/post/post.html',
-          controller: 'PostController',
-          controllerAs: 'PP'
+          controller: 'aPostController',
+          controllerAs: 'aPP'
         })
         .state('admin.team', {
           url: '/team',

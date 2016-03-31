@@ -3,7 +3,7 @@
 
   angular
     .module('webProject')
-    .controller('PostController', PostController);
+    .controller('aPostController', PostController);
 
   /** @ngInject */
   function PostController($log, send) {
