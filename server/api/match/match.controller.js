@@ -24,10 +24,10 @@ exports.list = function(req, res, next){
     limit: 10,
     include: [{
         model: team,
-        as:    'fteam'
+        as:    'fTeam'
       }, {
         model: team,
-        as:    'steam'
+        as:    'sTeam'
       }]
   })
     .then(function (matchs) {
