@@ -1,7 +1,7 @@
 var signToken   = require('../auth.service').signToken;
 var express     = require('express')
 var router      = express.Router();
-var User        = require('../../sqldb').User
+var User        = require('../../sqldb').user
 var bcrypt      = require('bcrypt-nodejs');
 
 exports['default'] = function(passport){
