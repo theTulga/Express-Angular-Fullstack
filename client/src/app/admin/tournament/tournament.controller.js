@@ -6,7 +6,7 @@
     .controller('adminTournamentController', adminTournamentController);
 
   /** @ngInject */
-  function adminTournamentController($log, send) {
+  function adminTournamentController($log, send, Notification) {
     var vm = this;
     vm.tours = [];
     vm.tournament = {};

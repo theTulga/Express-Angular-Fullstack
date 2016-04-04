@@ -6,7 +6,7 @@
     .controller('adminMatchController', adminMatchController);
 
   /** @ngInject */
-  function adminMatchController($log, send) {
+  function adminMatchController($log, send, Notification) {
     var vm = this;
     vm.match = {};
     vm.teams = [];

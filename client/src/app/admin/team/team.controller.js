@@ -6,7 +6,7 @@
     .controller('adminTeamController', adminTeamController);
 
   /** @ngInject */
-  function adminTeamController($log, send) {
+  function adminTeamController($log, send, Notification) {
     var vm = this;
     vm.team = {};
     vm.teams = [];

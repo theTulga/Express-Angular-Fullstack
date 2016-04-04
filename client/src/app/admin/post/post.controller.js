@@ -6,7 +6,7 @@
     .controller('adminPostController', adminPostController);
 
   /** @ngInject */
-  function adminPostController($log, send) {
+  function adminPostController($log, send, Notification) {
     var vm = this;
     vm.post = {};
     vm.posts = [];
