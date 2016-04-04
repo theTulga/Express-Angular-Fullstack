@@ -7,8 +7,12 @@
 
   /** @ngInject */
   function runBlock($log, $rootScope, $state, redactorOptions, $cookies, config) {
+    if (config.env === 'dev'){
+      redactorOptions.imageUpload = config.dev.host + '/image';
+    } else {
+      redactorOptions.imageUpload = config.app.host + '/image';
+    }
 
-    redactorOptions.imageUpload = config.dev.host + '/image';
 
     // if (config.env === 'dev'){
     //   redactorOptions.imageUpload = config.dev.host + '/image?CSRF-TOKEN=' + $cookies.get('XSRF-TOKEN');
