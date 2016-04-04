@@ -5,8 +5,8 @@ var router = new Router();
 router.get('/', controller.index);
 router.post('/', controller.create);
 router.get('/:id', controller.show);
+router.delete('/:id', controller.destroy);
 
-// router.delete('/:id', controller.destroy);
 // router.get('/me', controller.me);
 // router.put('/:id/password', controller.changePassword);
 

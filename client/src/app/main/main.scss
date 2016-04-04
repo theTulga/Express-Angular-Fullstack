@@ -2,12 +2,17 @@ body, .navbar-custom a, .navbar-custom2 a{
   font-family: Ubuntu !important;
 }
 
+.top-post-pic{
+  width: 100%;
+}
+
 .body_with_background_image {
   background: url('/assets/images/main_background2.jpg') no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+  padding-bottom: 100px;
 }
 
 .bodywrap {
@@ -24,6 +29,8 @@ body, .navbar-custom a, .navbar-custom2 a{
     -webkit-background-clip: padding-box; /* for Safari */
     background-clip: padding-box; /* for IE9+, Firefox 4+, Opera, Chrome */
 	color:#ffffff;
+  margin-bottom: 50px;
+  padding-bottom: 50px;
 }
 
 .contentwrap {

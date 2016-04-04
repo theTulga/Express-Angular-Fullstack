@@ -5,11 +5,10 @@ var router = new Router();
 router.get('/', controller.index);
 router.post('/', controller.create);
 router.get('/:id', controller.show);
+router.put('/:id', controller.update);
 
 // router.delete('/:id', controller.destroy);
 // router.get('/me', controller.me);
-// router.put('/:id/password', controller.changePassword);
-
 
 
 exports['default'] = router;

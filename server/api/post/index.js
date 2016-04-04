@@ -7,10 +7,10 @@ router.post('/', controller.create);
 router.get('/top', controller.top);
 router.get('/category/:category', controller.category);
 router.get('/:id', controller.show);
-
-// router.delete('/:id', controller.destroy);
+router.put('/', controller.update);
+router.delete('/:id', controller.destroy);
 // router.get('/me', controller.me);
-// router.put('/:id/password', controller.changePassword);
+
 
 
 

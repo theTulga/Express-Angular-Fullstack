@@ -8,26 +8,32 @@
         .state('admin.post', {
           url: '/post',
           templateUrl: 'app/admin/post/post.html',
-          controller: 'aPostController',
-          controllerAs: 'aPP'
+          controller: 'adminPostController',
+          controllerAs: 'aPost'
         })
         .state('admin.team', {
           url: '/team',
           templateUrl: 'app/admin/team/team.html',
-          controller: 'TeamController',
-          controllerAs: 'TT'
+          controller: 'adminTeamController',
+          controllerAs: 'aTeam'
         })
         .state('admin.match', {
           url: '/match',
           templateUrl: 'app/admin/match/match.html',
-          controller: 'aMatchController',
-          controllerAs: 'aMM'
+          controller: 'adminMatchController',
+          controllerAs: 'aMatch'
         })
         .state('admin.tournament', {
           url: '/tournament',
           templateUrl: 'app/admin/tournament/tournament.html',
-          controller: 'aTournamentController',
-          controllerAs: 'aTT'
+          controller: 'adminTournamentController',
+          controllerAs: 'aTour'
+        })
+        .state('admin.tourpic', {
+          url: '/participant',
+          templateUrl: 'app/admin/participant/participant.html',
+          controller: 'adminParticipantController',
+          controllerAs: 'aPart'
         })
     })
 

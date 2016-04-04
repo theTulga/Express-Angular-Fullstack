@@ -14,7 +14,9 @@
       $log.debug('********Request*********')
       data ? $log.debug('%s %s %s',route, method, data)
       :      $log.debug('%s %s',route, method)
-      if (!data){
+
+
+      if (!method){
         method = 'GET'
       }
       if (!image)
@@ -36,11 +38,15 @@
           fd.append(key, data[key]);
         }
         $log.debug('fd',fd);
-        return $http.post( prefix + route, fd, {
-          transformRequest: angular.identity,
+        return $http( {
+          url: prefix + route,
+          method: method,
+          data: fd,
+          // }, {
           headers: {
             'Content-Type': undefined
-          }
+          },
+          transformRequest: angular.identity
         })
           .then(function(response){
             return response.data;

@@ -14,7 +14,8 @@
                             'angular-redactor',
                             'ui.bootstrap.datetimepicker',
                             'angularMoment',
-                            'ksSwiper'
+                            'ksSwiper',
+                            'ui-notification'
                             ])
 
 })();

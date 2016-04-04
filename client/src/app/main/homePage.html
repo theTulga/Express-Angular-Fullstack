@@ -14,6 +14,7 @@
     <div class='col-md-6 content_white'>
         <div class="starter-template" ng-repeat='post in HH.posts | limitTo: 5'>
           <h2> <a href="/post/{{post.id}}">{{post.title}} </a></h2>
+          <img ng-if='post.pic' class='top-post-pic' src='/api/images/{{post.pic}}'>
           <p class="m" ng-bind-html="post.content"></p>
           <a class='btn btn-primary yellow_button' href="/post/{{post.id}}"> READMORE </a>
         </div>
@@ -22,7 +23,7 @@
     <div class='col-md-3'>
       <div class='content_blue'>
         <h5 class='content_blue_head'>
-          Incoming Tournaments
+          Онцлох мэдээ
         </h5>
         <table class="table">
           <tbody>
@@ -77,7 +78,7 @@
     <div class='col-md-3'>
       <div class='content_darkgray'>
         <h5 class='content_darkgray_head'>
-          Incoming Tournaments
+          Өнгөрсөн тоглолтууд
         </h5>
         <table class="table">
           <tbody>

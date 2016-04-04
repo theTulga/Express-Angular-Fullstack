@@ -18,6 +18,10 @@
   padding-bottom: 50px;
 }
 
+.opponent_data a, .opponent_data h4 {
+  color: white;
+}
+
 .team_logo_left {
   height: 100px;
   width: 100px;
@@ -49,4 +53,12 @@
 .match {
   padding-left: 0px;
   padding-right: 0px;
+}
+
+.stream-button{
+  margin-right: 50px;
+}
+
+.streams {
+  margin-top: 50px;
 }

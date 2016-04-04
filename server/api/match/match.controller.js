@@ -1,6 +1,7 @@
 var sqldb = require('../../sqldb')
-var match = sqldb.match;
-var team = sqldb.team;
+var Match = sqldb.match;
+var Team = sqldb.team;
+var Tournament = sqldb.tournament;
 
 function handleError(res, statusCode) {
   statusCode = statusCode || 500;
@@ -10,23 +11,23 @@ function handleError(res, statusCode) {
 }
 
 exports.index = function(req, res, next){
-  match.findAll()
+  Match.findAll()
     .then(function (matchs) {
       res.status(200).json(matchs);
     }).catch(handleError(res));
 }
 
 exports.list = function(req, res, next){
-  match.findAll({
+  Match.findAll({
     where: {
       ended: false,
     },
     limit: 10,
     include: [{
-        model: team,
+        model: Team,
         as:    'fTeam'
       }, {
-        model: team,
+        model: Team,
         as:    'sTeam'
       }]
   })
@@ -38,8 +39,8 @@ exports.list = function(req, res, next){
 
 exports.create = function (req, res, next) {
 
-  var newmatch = match.build(req.body);
-  newmatch.save()
+  var newMatch = Match.build(req.body);
+  newMatch.save()
     .then(function (user) {
       res.json({ message: 'Success' });
       return null
@@ -52,16 +53,19 @@ exports.create = function (req, res, next) {
 exports.show = function (req, res, next) {
   var matchId = req.params.id;
 
-  match.find({
+  Match.find({
     where: {
       id: matchId
     },
     include: [{
-      model: team,
-      as:    'fteam'
+      model: Team,
+      as:    'fTeam'
     }, {
-      model: team,
-      as:    'steam'
+      model: Team,
+      as:    'sTeam'
+    }, {
+      model: Tournament,
+      as:    'tournament'
     }]
   })
     .then(function (item) {

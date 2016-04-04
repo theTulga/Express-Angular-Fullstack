@@ -9,7 +9,7 @@
         url: '/match/:id',
         templateUrl: 'app/match/match.html',
         controller: 'MatchController',
-        controllerAs: 'MaMa'
+        controllerAs: 'cMatch'
       })
     })
 

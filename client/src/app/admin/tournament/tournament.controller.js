@@ -3,22 +3,49 @@
 
   angular
     .module('webProject')
-    .controller('aTournamentController', aTournamentController);
+    .controller('adminTournamentController', adminTournamentController);
 
   /** @ngInject */
-  function aTournamentController($log, send) {
+  function adminTournamentController($log, send) {
     var vm = this;
+    vm.tours = [];
     vm.tournament = {};
 
-    vm.submit = function(){
-      send.request('/tournament', 'POST', vm.tournament, true)
+    vm.getTours = function(){
+      send.request('/tournament', 'GET')
         .then(
-          function(res){
-            $log.debug('success', res);
+          function(res) {
+            vm.tours = res;
           },
-          function(err){
-            $log.debug('error', err);
-          });
+          function(err) {
+            $log.debug (err);
+          }
+        )
+    }; vm.getTours();
+
+    vm.edit = function(id){
+      angular.forEach(vm.tours, function(entry) {
+        if (entry.id === id)
+          return vm.tournament = entry;
+      })
     }
+
+    vm.submit = function(){
+      send.request('/tournament', 'POST', vm.tour, true)
+        .then(
+          function(res) {
+            if(res.message === 'Success'){
+              Notification.success('Амжилттай хадгаллаа.');
+              vm.tour = {};
+              vm.getTours();
+            }
+          },
+          function(err) {
+            Notification.error('Хадгалалт амжилтгүй.');
+            $log.debug(err)
+          }
+        )
+    }
+
   }
 })();

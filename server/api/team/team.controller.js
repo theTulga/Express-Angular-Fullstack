@@ -18,7 +18,7 @@ exports.index = function(req, res, next){
 exports.create = function (req, res, next) {
 
   var newTeam = Team.build(req.body);
-  newTeam.logo = req.file.originalname;
+  if (req.file) newTeam.logo = req.file.originalname;
   newTeam.save()
     .then(function (user) {
       res.json({ message: 'Success' });
@@ -30,6 +30,22 @@ exports.create = function (req, res, next) {
     });
 }
 
+exports.destroy = function (req, res, next) {
+  var id = req.params.id;
+  Team.destroy({
+    where: {
+      id: id
+    }
+  }).then(
+    function(team) {
+      res.json({message: 'Success'})
+      return null
+    }).catch(function(err) {
+      console.log('err in Team.destroy',err)
+      handleError(res)
+      return null
+    })
+}
 exports.show = function (req, res, next) {
   var TeamId = req.params.id;
 
