@@ -47,6 +47,15 @@ exports.create = function (req, res, next) {
   if (req.body.top) newPost.setDataValue("pic", req.file.originalname)
   newPost.save()
     .then(function (post) {
+      var newRead = Read.build({
+        post_id: post.id,
+        count: '0'
+      });
+      newRead.save()
+        .then(function(read){
+          console.log('Created read',read.dataValues)
+          return null
+        })
       res.json({ message: 'Success' });
       return null
     }).catch(function(err) {
@@ -67,16 +76,6 @@ exports.update = function (req, res, next) {
       id: req.body.id
     }
   }).then(function (post) {
-
-    var newRead = Read.build({
-      post_id: req.body.id,
-      count: '0'
-    });
-    newRead.save()
-      .then(function(read){
-        console.log('Created read',read.dataValues)
-        return null
-      })
     res.json({ message: 'Success' });
     return null
   }).catch(function(err) {
