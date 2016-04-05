@@ -68,7 +68,6 @@ exports.create = function (req, res, next) {
 exports.update = function (req, res, next) {
   delete req.body.createdAt;
   delete req.body.updatedAt;
-  console.log(req.body)
   if (req.file && req.body.top) req.body.setDataValue("pic", req.file.originalname)
 
   Post.update(req.body, {
@@ -168,8 +167,6 @@ exports.category = function (req, res, next) {
       });
 
   else {
-    console.log('categories.indexOf(category)',categories.indexOf(category) )
-    console.log('ELSE!',category);
     res.status(404).end();
   }
 }
