@@ -23,51 +23,33 @@
     <div class='col-md-3'>
       <div class='content_blue'>
         <h5 class='content_blue_head'>
-          Онцлох мэдээ
+          Их уншсан
         </h5>
-        <table class="table">
+        <table>
           <tbody>
-            <tr>
+            <tr ng-repeat='read in HH.popular'>
               <td>
-                <a href='/match/{{match.id}}'>
-                  <span class='team_name'>Tournament #1</span>
+                <a href='/post/{{read.post.id}}'>
+                  <img src='/api/images/{{read.post.pic}}' style='height: 50px; float: left;'>
                 </a>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <a href='/match/{{match.id}}'>
-                  <span class='team_name'>Tournament #2</span>
-                </a>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <a href='/match/{{match.id}}'>
-                  <span class='team_name'>Tournament #3</span>
-                </a>
+                {{read.post.title}}
+                <br>
+                <hr>
               </td>
             </tr>
           </tbody>
         </table>
       </div>
-      <div class='content_darkgray'>
-        <h5 class='content_darkgray_head'>
-          Incoming Tournaments
+      <div class='tournament_list'>
+        <h5 class='tournament_list_head'>
+          Тэмцээнүүд
         </h5>
         <table class="table">
           <tbody>
-            <tr>
-              <td>
-                <a href='/match/{{match.id}}'>
-                  <span class='team_name'>Tournament #1</span>
-                </a>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <a href='/match/{{match.id}}'>
-                  <span class='team_name'>Tournament #2</span>
+            <tr ng-repeat='tour in HH.tours'>
+              <td style='padding-left: 0px; padding-right: 0px;'>
+                <a href='/tournament/{{tour.id}}'>
+                  <img src='/api/images/{{tour.logo}}' style='width: 100%;'>
                 </a>
               </td>
             </tr>

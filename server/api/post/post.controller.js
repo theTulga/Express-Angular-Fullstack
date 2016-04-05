@@ -1,4 +1,9 @@
-var Post = require('../../sqldb').post;
+var sqldb = require('../../sqldb')
+
+var Post = sqldb.post;
+var Read = sqldb.read;
+
+
 
 function handleError(res, statusCode) {
   statusCode = statusCode || 500;
@@ -22,7 +27,6 @@ exports.index = function(req, res, next){
       res.status(500).end;
       return null
     })
-    // }).catch(handleError(res));
 }
 
 exports.top = function(req, res, next){
@@ -42,7 +46,7 @@ exports.create = function (req, res, next) {
   var newPost = Post.build(req.body)
   if (req.body.top) newPost.setDataValue("pic", req.file.originalname)
   newPost.save()
-    .then(function (user) {
+    .then(function (post) {
       res.json({ message: 'Success' });
       return null
     }).catch(function(err) {
@@ -62,7 +66,17 @@ exports.update = function (req, res, next) {
     where: {
       id: req.body.id
     }
-  }).then(function (user) {
+  }).then(function (post) {
+
+    var newRead = Read.build({
+      post_id: req.body.id,
+      count: '0'
+    });
+    newRead.save()
+      .then(function(read){
+        console.log('Created read',read.dataValues)
+        return null
+      })
     res.json({ message: 'Success' });
     return null
   }).catch(function(err) {
@@ -100,6 +114,13 @@ exports.show = function (req, res, next) {
       if (!item) {
         return res.status(404).end();
       }
+      Read.find({
+        where: {
+          post_id: postId
+        }
+      }).then(function(read) {
+        return read.increment('count', {by: 1});
+      })
       res.json(item);
       return null;
     })
@@ -109,6 +130,23 @@ exports.show = function (req, res, next) {
 }
 
 var categories = ['*(&@&!)', 'dota', 'csgo', 'lol'];
+
+exports.popular = function(req, res, next){
+  Read.findAll({
+    limit: 5,
+    order: 'count DESC',
+    include: {
+      model: Post,
+      as: 'post'
+    }
+  }).then(function(read) {
+    res.json(read)
+    return null
+  }).catch(function(err) {
+    console.log(err)
+    handleError(res)
+  })
+}
 
 exports.category = function (req, res, next) {
   var category = req.params.category;

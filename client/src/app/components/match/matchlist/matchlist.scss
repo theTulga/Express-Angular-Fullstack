@@ -18,19 +18,33 @@
   overflow: hidden;
   overflow-x: hidden;
   overflow-y: hidden;
-  width: 36%;
+  width: 30%;
   font-size: 12px;
+}
+
+.team_name2 {
+  color: #EDEDED;
+  vertical-align: middle;
+  display: inline-block;
+  white-space: nowrap;
+  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  width: 30%;
+  font-size: 12px;
+  text-align: right;
 }
 
 .vs {
   padding-left: 5px;
   padding-right: 5px;
-
   font-size: 12px;
   color: black;
 }
 
 .status {
+  margin-left: 20px;
+  width: 60px;
   text-align: right;
   font-size: 10px;
 }

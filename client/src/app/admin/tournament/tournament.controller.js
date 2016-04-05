@@ -31,7 +31,7 @@
     }
 
     vm.submit = function(){
-      send.request('/tournament', 'POST', vm.tour, true)
+      send.request('/tournament', 'POST', vm.tournament, true)
         .then(
           function(res) {
             if(res.message === 'Success'){

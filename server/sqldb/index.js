@@ -18,7 +18,7 @@ var db = {
 
 var models = [
   'user', 'post', 'team', 'match',
-  'tournament', 'participant'
+  'tournament', 'participant', 'read'
   // 'team', 					'Game',
   // 'user', 					'participant',
   // 'match', 					'prize',
@@ -41,7 +41,9 @@ var set_relations = function(){
   var Team = db.team,
       Match = db.match,
       Tournament = db.tournament,
-      Participant = db.participant
+      Participant = db.participant,
+      Read = db.read,
+      Post = db.post
 
 
       Team.hasMany(Match, {as: 'fMatches', foreignKey: 'fTeam_id'})
@@ -62,7 +64,8 @@ var set_relations = function(){
   Team.hasMany(Participant, {as: 'tournaments', foreignKey: 'team_id'})
   Participant.belongsTo(Team, {as: 'team', foreignKey: 'team_id'})
 
-
+      Post.hasOne(Read, {as: 'read', foreignKey: 'post_id'})
+      Read.belongsTo(Post, {as: 'post', foreignKey: 'post_id'})
 
 }();
 

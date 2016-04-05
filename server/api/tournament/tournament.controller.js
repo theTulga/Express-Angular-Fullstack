@@ -1,5 +1,4 @@
 var sqldb = require('../../sqldb')
-
 var Tournament = sqldb.tournament
 var Participant = sqldb.participant
 var Team = sqldb.team
