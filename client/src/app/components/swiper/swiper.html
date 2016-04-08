@@ -14,10 +14,10 @@
   override-parameters="{ 'loop': 'true'
                         }">
   <ks-swiper-slide class="swiper-slide" ng-repeat='post in SS.posts'>
-    <div ng-if=post.pic style="background-image:url( '/api/images/{{post.pic}}' );" class="new">
+    <div ng-if=post.pic style="background-image:url( {{main.imagePrefix + post.pic}} );" class="new">
       <div class='showcase-caption'>
         <h4> <a class='Slider-Heading' href="/post/{{post.id}}">{{post.title}} </a> </h4>
-        <p class='Slider-Content'>  {{ post.content }}</p>
+        <p class='Slider-Content' ng-bind-html='post.content | limitHtml: 350'>  </p>
       </div>
     </div>
 

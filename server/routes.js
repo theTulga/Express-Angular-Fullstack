@@ -10,16 +10,22 @@ var multer    = require('multer')
 
 exports['default'] = function(app, passport) {
 
+  app.use(function(req, res, next){
+    // res.header("Access-Control-Allow-Origin", "*");
+    res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
+    res.setHeader("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+    // res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
+    res.setHeader('Access-Control-Allow-Credentials', true);
+    next();
+  })
+
   if (app.get('env') === 'production'){
     console.log('11111')
-    app.use(function(req, res, next){
-      res.setHeader('Access-Control-Allow-Origin', 'http://52.25.241.31');
-      res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
-      res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
-      res.setHeader('Access-Control-Allow-Credentials', true);
-      next();
-    })
+
   }
+
   var storage = multer.diskStorage({
     destination: function(req, file, cb) {
       cb(null, __dirname + '/images/')

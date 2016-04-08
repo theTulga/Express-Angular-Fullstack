@@ -86,18 +86,28 @@ exports.update = function (req, res, next) {
 
 exports.destroy = function (req, res, next) {
   var id = req.params.id;
-  Post.destroy({
-    where:{
-      id: id
+  Read.destroy({
+    where: {
+      post_id: id
     }
-  }).then(function (user) {
-    res.json({ message: 'Success' });
+  }).then(function(){
+    Post.destroy({
+      where:{
+        id: id
+      }
+    }).then(function () {
+      res.json({ message: 'Success' });
+      return null
+    }).catch(function(err) {
+      console.log('err in Post.update()',err)
+      handleError(res);
+      return null
+    })
     return null
-  }).catch(function(err) {
-    console.log('err in Post.update()',err)
-    handleError(res);
-    return null
-  });
+  })
+
+
+
 }
 
 exports.show = function (req, res, next) {

@@ -2,6 +2,20 @@ body, .navbar-custom a, .navbar-custom2 a{
   font-family: Ubuntu !important;
 }
 
+.m {
+  text-align: justify;
+  overflow: hidden;
+  display: -webkit-box;
+ -webkit-line-clamp: 3;
+ -webkit-box-orient: vertical;
+  word-break: break-all;
+}
+
+.bottom_line{
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
 .top-post-pic{
   width: 100%;
 }

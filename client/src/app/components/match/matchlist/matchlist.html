@@ -1,5 +1,5 @@
 <div class='content_darkgray'>
-  <h5 class='content_darkgray_head'> Тоглолтууд </h5>
+  <h5 class='content_darkgray_head'> Хуваарь </h5>
   <table class="table match_list">
     <tbody>
       <tr ng-repeat="match in MM.matches">
@@ -9,7 +9,9 @@
             <span class='vs'> VS </span>
             <span class='team_name2'>{{match.sTeam.title}}</span>
           </a>
-          <span class='status'> {{ MM.calculateDiff(match.date) }} </span>
+
+          <span class='status'> {{  match.timeLeft }} </span>
+
         </td>
       </tr>
     </tbody>

@@ -15,7 +15,8 @@
                             'ui.bootstrap.datetimepicker',
                             'angularMoment',
                             'ksSwiper',
-                            'ui-notification'
+                            'ui-notification',
+                            'angular-humanize-duration'
                             ])
 
 })();

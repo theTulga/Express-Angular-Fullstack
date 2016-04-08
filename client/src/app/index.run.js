@@ -3,7 +3,16 @@
 
   angular
     .module('webProject')
-    .run(runBlock);
+    .run(runBlock)
+    .filter('limitHtml', function() {
+        return function(text, limit) {
+
+            var changedString = String(text).replace(/<[^>]+>/gm, '');
+            var length = changedString.length;
+
+            return changedString.length > limit ? changedString.substr(0, limit - 1) : changedString;
+        }
+      })
 
   /** @ngInject */
   function runBlock($log, $rootScope, $state, redactorOptions, $cookies, config) {

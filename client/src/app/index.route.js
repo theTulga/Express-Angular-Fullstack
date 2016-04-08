@@ -13,7 +13,7 @@
         url: '',
         templateUrl: 'app/main/main.html',
         controller: 'MainController',
-        controllerAs: 'MM'
+        controllerAs: 'main'
       })
       .state('main.homepage', {
         url: '/',

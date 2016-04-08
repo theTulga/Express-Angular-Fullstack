@@ -11,6 +11,10 @@
     vm.posts = [];
     vm.tours = [];
     vm.popular = [];
+
+    vm.get = function(index){
+      return vm.posts[index].content;
+    }
     send.request('/post', 'GET')
       .then(function(res) {
         vm.posts = res;

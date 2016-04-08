@@ -10,12 +10,12 @@
     </header>
 
 
-  <div class='row' style='margin-left: 5px; margin-right: 5px;'>
+  <div class='row'>
     <div class='col-md-6 content_white'>
         <div class="starter-template" ng-repeat='post in HH.posts | limitTo: 5'>
           <h2> <a href="/post/{{post.id}}">{{post.title}} </a></h2>
-          <img ng-if='post.pic' class='top-post-pic' src='/api/images/{{post.pic}}'>
-          <p class="m" ng-bind-html="post.content"></p>
+          <img ng-if='post.pic' class='top-post-pic' src='{{ main.imagePrefix + post.pic}}'>
+          <p class="m" ng-bind-html="post.content | limitHtml: 350"></p>
           <a class='btn btn-primary yellow_button' href="/post/{{post.id}}"> READMORE </a>
         </div>
 
@@ -30,7 +30,7 @@
             <tr ng-repeat='read in HH.popular'>
               <td style='font-size: 13px;'>
                 <a href='/post/{{read.post.id}}'>
-                  <img src='/api/images/{{read.post.pic}}' style='height: 50px; float: left; margin-right: 10px;'>
+                  <img src='{{ main.imagePrefix + read.post.pic}}' style='height: 50px; float: left; margin-right: 10px;'>
                 </a>
                 {{read.post.title}}
                 <br>
@@ -44,13 +44,14 @@
         <h5 class='tournament_list_head'>
           Тэмцээнүүд
         </h5>
-        <table class="table">
+        <table>
           <tbody>
             <tr ng-repeat='tour in HH.tours'>
-              <td style='padding-left: 0px; padding-right: 0px;'>
+              <td style='padding-left: 0px; padding-right: 0px; margin-bottom: 5px; margin-top: 5px;'>
                 <a href='/tournament/{{tour.id}}'>
-                  <img src='/api/images/{{tour.logo}}' style='width: 100%;'>
+                  <img src='{{ main.imagePrefix + tour.logo}}' style='width: 100%;'>
                 </a>
+                <hr class='bottom_line'>
               </td>
             </tr>
           </tbody>
@@ -60,7 +61,7 @@
     <div class='col-md-3'>
       <div class='content_darkgray'>
         <h5 class='content_darkgray_head'>
-          Өнгөрсөн тоглолтууд
+          Үр дүн
         </h5>
         <table class="table">
           <tbody>
@@ -81,24 +82,19 @@
           </tbody>
         </table>
       </div>
-      <div class='content_silver'>
-        <h5 class='content_silver_head'>
-          Incoming Tournaments
+      <div class='content_blue'>
+        <h5 class='content_blue_head'>
+          Их уншсан
         </h5>
-        <table class="table">
+        <table>
           <tbody>
-            <tr>
-              <td>
-                <a href='/match/{{match.id}}'>
-                  <span class='team_name'>Tournament #1</span>
+            <tr ng-repeat='read in HH.popular'>
+              <td style='font-size: 13px;'>
+                <a href='/post/{{read.post.id}}'>
+                  <img src='{{ main.imagePrefix + read.post.pic}}' style='height: 50px; float: left; margin-right: 10px;'>
                 </a>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <a href='/match/{{match.id}}'>
-                  <span class='team_name'>Tournament #2</span>
-                </a>
+                {{read.post.title}}
+                <hr>
               </td>
             </tr>
           </tbody>

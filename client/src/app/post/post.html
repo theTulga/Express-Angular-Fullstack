@@ -2,7 +2,7 @@
   <div class="col-md-9 content_white">
     <div class="starter-template">
       <h2>{{PP.post.title}} </h2>
-      <img ng-if='PP.post.pic' class="postPic" src="/api/images/{{PP.post.pic}}" width="100%">
+      <img ng-if='PP.post.pic' class="postPic" src="{{ main.imagePrefix + PP.post.pic}}" width="100%">
       <p class="m" ng-bind-html="PP.post.content"></p>
       <hr>
     </div>
