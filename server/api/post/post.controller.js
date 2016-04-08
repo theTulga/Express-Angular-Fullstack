@@ -44,7 +44,7 @@ exports.top = function(req, res, next){
 
 exports.create = function (req, res, next) {
   var newPost = Post.build(req.body)
-  if (req.body.top) newPost.setDataValue("pic", req.file.originalname)
+  if (req.file) newPost.setDataValue("pic", req.file.originalname)
   newPost.save()
     .then(function (post) {
       var newRead = Read.build({
