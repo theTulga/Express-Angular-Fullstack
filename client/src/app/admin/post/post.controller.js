@@ -44,34 +44,41 @@
     }
 
     vm.submit = function(){
-      if (vm.post.id){
-        send.request('/post', 'PUT', vm.post, vm.post.top)
-          .then(
-            function(res){
-              if (res.message === 'Success'){
-                Notification.success('Амжилттай хадгаллаа.');
-                vm.post = {};
-                vm.getPosts();
-              }
-            },
-            function(err){
-              Notification.error('Хадгалалт амжилтгүй.');
-              $log.debug(err);
-            });
-      } else {
-        send.request('/post', 'POST', vm.post, vm.post.top)
-          .then(
-            function(res){
-              if (res.message === 'Success'){
-                Notification.success('Амжилттай хадгаллаа.');
-                vm.post = {};
-                vm.getPosts();
-              }
-            },
-            function(err){
-              Notification.error('Хадгалалт амжилтгүй.');
-              $log.debug(err);
-            });
+      var ok = false;
+      if (vm.post.pic) ok = true;
+      if (ok){
+        if (vm.post.id){
+          send.request('/post', 'PUT', vm.post, true)
+            .then(
+              function(res){
+                if (res.message === 'Success'){
+                  Notification.success('Амжилттай хадгаллаа.');
+                  vm.post = {};
+                  vm.getPosts();
+                }
+              },
+              function(err){
+                Notification.error('Хадгалалт амжилтгүй.');
+                $log.debug(err);
+              });
+        } else {
+          send.request('/post', 'POST', vm.post, true)
+            .then(
+              function(res){
+                if (res.message === 'Success'){
+                  Notification.success('Амжилттай хадгаллаа.');
+                  vm.post = {};
+                  vm.getPosts();
+                }
+              },
+              function(err){
+                Notification.error('Хадгалалт амжилтгүй.');
+                $log.debug(err);
+              });
+        }
+      }
+      if (!ok) {
+        Notification.error('Мэдээнд зураг сонгож өгнө үү');
       }
     }
     vm.new = function(){
