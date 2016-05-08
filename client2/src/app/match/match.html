@@ -1,0 +1,79 @@
+<div class='row'>
+  <div class='col-md-12'>
+      <div class='match_wrapper'>
+        <div class='opponents' style='padding-top: 50px;'>
+          <h1 ng-if='cMatch.match.tournament.title' style='text-align: center;'> {{cMatch.match.tournament.title}} </h1>
+        </div>
+
+        <div class='opponent_data'>
+          <div class='row'>
+            <div class='col-md-5'>
+              <a href='/#/'><h4 class='nameLeft'>{{cMatch.match.fTeam.title}}</h4> </a>
+              <img class='team_logo_left' src='{{ main.imagePrefix + cMatch.match.fTeam.logo}}'>
+            </div>
+
+            <div class='col-md-2' style='text-align: center;'>
+              <label ng-if='cMatch.match.bestof' > Best Of {{cMatch.match.gameSeries}} </label>
+              <p> {{cMatch.match.date | date}} </p>
+              <p> {{cMatch.match.date | date : 'H:mm'}} </p>
+              <p> VS </p>
+              <!-- <label ng-if='Match.match[0].ended' style='padding-left: 41%'> {{Match.match}} : {{Match.match[0].score2}} </label> -->
+            </div>
+            <div class='col-md-5'>
+              <img class='team_logo_right' src='{{ main.imagePrefix + cMatch.match.sTeam.logo}}'>
+              <a href='/#/'><h4 class='nameRight'>{{cMatch.match.sTeam.title}}</h4> </a>
+            </div>
+          </div>
+        </div>
+        <div class='streams'>
+          <label> Recent team plays </label>
+          <div class='row'>
+            <div class='col-md-offset-1 col-md-5'>
+              <p> Team 1 vs Team 2 </p>
+              <p> Team 1 vs Team 2 </p>
+              <p> Team 1 vs Team 2 </p>
+            </div>
+            <div class='col-md-offset-1 col-md-5'>
+              <p style='padding-left: 250px;'> Team 1 vs Team 2 </p>
+              <p style='padding-left: 250px;'> Team 1 vs Team 2 </p>
+              <p style='padding-left: 250px;'> Team 1 vs Team 2 </p>
+            </div>
+          </div>
+        </div>
+        <div class='ban_pick_data'>
+          <label> BAN PICK </label>
+          <div class='row'>
+
+            <div class='col-md-offset-1 col-md-4'>
+              <img src="http://www.gosugamers.net/uploads/images/heroes/icons/48-1333198227.png" class="hero" title="Enigma" alt="Enigma">
+              <img src="http://www.gosugamers.net/uploads/images/heroes/icons/14-1333197077.png" class="hero" title="Tide" alt="Tide">
+              <img src="http://www.gosugamers.net/uploads/images/heroes/icons/214-1364034319.png" class="hero" title="Tusk" alt="Tusk">
+              <img src="http://www.gosugamers.net/uploads/images/heroes/icons/58-1333199070.png" class="hero" title="Death Prophet" alt="Death Prophet">
+              <img src="http://www.gosugamers.net/uploads/images/heroes/icons/72-1336688807.png" class="hero" title="Clinkz" alt="Clinkz">
+            </div>
+            <div class='col-md-6'>
+              <img style='float: right;' src="http://www.gosugamers.net/uploads/images/heroes/icons/48-1333198227.png" class="hero" title="Enigma" alt="Enigma">
+              <img style='float: right;' src="http://www.gosugamers.net/uploads/images/heroes/icons/14-1333197077.png" class="hero" title="Tide" alt="Tide">
+              <img style='float: right;' src="http://www.gosugamers.net/uploads/images/heroes/icons/214-1364034319.png" class="hero" title="Tusk" alt="Tusk">
+              <img style='float: right;' src="http://www.gosugamers.net/uploads/images/heroes/icons/58-1333199070.png" class="hero" title="Death Prophet" alt="Death Prophet">
+              <img style='float: right;' src="http://www.gosugamers.net/uploads/images/heroes/icons/72-1336688807.png" class="hero" title="Clinkz" alt="Clinkz">
+            </div>
+          </div>
+        </div>
+        <div class='streams'>
+          <label> LIVE STREAMS </label>
+          <div class='row'>
+            <div class='col-md-offset-1 col-md-10'>
+              <button class='btn btn-primary stream-button yellow_button'> STREAM1 </a>
+              <button class='btn btn-primary stream-button yellow_button'> STREAM1 </a>
+              <button class='btn btn-primary stream-button yellow_button'> STREAM1 </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+          <!-- <iframe src="http://player.twitch.tv/?channel=dotademon" frameborder="0" scrolling="no" height="378" width="620"></iframe> -->
+
+  </div>
+</div>
+<pre> {{cMatch.match | json}} </pre>

@@ -22,14 +22,15 @@ exports.list = function(req, res, next){
     where: {
       ended: false,
     },
-    limit: 10,
+    limit: 7,
     include: [{
         model: Team,
         as:    'fTeam'
       }, {
         model: Team,
         as:    'sTeam'
-      }]
+      }],
+    order: 'date DESC'
   })
     .then(function (matchs) {
       res.status(200).json(matchs);

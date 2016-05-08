@@ -30,7 +30,7 @@ exports.destroy = function(req, res, next){
     }
   })
     .then(function (parts) {
-      res.json({ message: 'success' });
+      res.json({ message: 'Success' });
       return null;
     }).catch(handleError(res));
 }
