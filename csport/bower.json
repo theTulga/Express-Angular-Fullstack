@@ -1,15 +1,15 @@
 {
   "name": "csport",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "dependencies": {
-    "angular-animate": "~1.2.29",
-    "angular-cookies": "~1.2.29",
-    "angular-touch": "~1.2.29",
-    "angular-sanitize": "~1.2.29",
-    "angular-messages": "~1.2.29",
-    "angular-aria": "~1.2.29",
+    "angular-animate": "~1.5.3",
+    "angular-cookies": "~1.5.3",
+    "angular-touch": "~1.5.3",
+    "angular-sanitize": "~1.5.3",
+    "angular-messages": "~1.5.3",
+    "angular-aria": "~1.5.3",
     "jquery": "~2.1.4",
-    "angular-resource": "~1.2.29",
+    "angular-resource": "~1.5.3",
     "angular-ui-router": "~0.2.15",
     "bootstrap-sass": "~3.3.5",
     "angular-bootstrap": "~0.14.3",
@@ -18,16 +18,17 @@
     "moment": "~2.10.6",
     "angular-moment": "^0.10.3",
     "animate.css": "~3.4.0",
-    "angular": "~1.2.29",
+    "angular": "~1.5.3",
     "angular-redactor": "^1.1.6",
     "swiper": "swiper#~3.3.0",
     "angular-swiper": "^0.3.2",
     "angular-ui-notification": "^0.1.0",
-    "angularjs-humanize-duration": "^0.0.1"
-
+    "humanize-duration": "^3.7.1",
+    "angularjs-humanize-duration": "^0.0.1",
+    "angular-ui-bootstrap-datetimepicker": "^1.2.4"
   },
   "devDependencies": {
-    "angular-mocks": "~1.2.29"
+    "angular-mocks": "~1.5.3"
   },
   "overrides": {
     "bootstrap-sass": {
@@ -43,6 +44,6 @@
   },
   "resolutions": {
     "jquery": "~2.1.4",
-    "angular": "~1.2.29"
+    "angular": "~1.5.3"
   }
 }

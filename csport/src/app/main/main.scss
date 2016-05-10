@@ -1,0 +1,28 @@
+.mainwrap {
+  background: url('/assets/images/try-background2.jpg') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  padding-bottom: 50px;
+}
+
+.bodywrap {
+  background-image: url('/assets/images/opacity.png');
+	-webkit-box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
+	-moz-box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
+	box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
+	border-left:5px solid rgb(14, 14, 14);
+	border-bottom:5px solid rgb(14, 14, 14);
+	border-left:5px solid rgba(14, 14, 14, .4);
+	border-right:5px solid rgba(14, 14, 14, .4);
+	border-bottom:5px solid rgba(14, 14, 14, .4);
+    -webkit-background-clip: padding-box; /* for Safari */
+    background-clip: padding-box; /* for IE9+, Firefox 4+, Opera, Chrome */
+	color:#ffffff;
+  padding-bottom: 50px;
+}
+
+.logo-image {
+	width: 40%;
+}

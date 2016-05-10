@@ -1,0 +1,25 @@
+<ks-swiper-container swiper="swiper"
+  ng-if="SS.posts.length"
+  slides-per-view="1"
+  slides-per-column="1"
+  space-between="0"
+  pagination-is-active="true"
+  pagination-clickable="false"
+  show-nav-buttons="false"
+  autoplay="5000"
+  autoplayDisableOnInteraction='false'
+  initial-slide="0"
+  direction="horizontal"
+  speed='15000'
+  override-parameters="{ 'loop': 'true'
+                        }">
+  <ks-swiper-slide class="swiper-slide" ng-repeat='post in SS.posts'>
+    <div ng-if=post.pic style="background-image:url( {{main.imagePrefix + post.pic}} );" class="new">
+      <div class='showcase-caption'>
+        <h4> <a class='Slider-Heading' href="/post/{{post.id}}">{{post.title}} </a> </h4>
+        <p class='Slider-Content' ng-bind-html='post.content | limitHtml: 350'>  </p>
+      </div>
+    </div>
+
+  </ks-swiper-slide>
+</ks-swiper-container>
