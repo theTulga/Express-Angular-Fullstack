@@ -3,7 +3,7 @@
 
   var config = {
     app: {
-      host: 'http://52.25.241.31'
+      host: 'http://52.34.105.69'
     },
     dev: {
       host: 'http://localhost:8081'
