@@ -53,7 +53,7 @@ exports['default'] = function(app, passport) {
 
   app.route('/*')
     .get(function(req, res) {
-      return res.sendFile(path.resolve(config.root, 'csport/.tmp/serve/index.html'));
+      return res.sendFile(path.resolve(config.root, 'csport/dist/index.html'));
     });
 };
 module.exports = exports['default'];

@@ -35,25 +35,10 @@ module.exports = function(app, passport) {
   }));
   app.use(passport.initialize())
   app.use(passport.session())
-  if (env === 'production'){
-    app.set('appPath', path.join(config.root, 'csport/dist'));
-  }else{
-    app.set('appPath', path.join(config.root, 'csport/src'));
-  }
-  if ('production' === env) {
-    app.use(favicon(path.join(config.root, 'csport/dist', 'favicon.ico')));
-    app.use(express.static(app.get('appPath')));
-    app.use(express.static(path.join(config.root, '/csport/dist')));
-    app.use(express.static(path.join(config.root, '/csport/src')));
-    app.use(morgan('dev'));
-  }
 
-  if ('development' === env || 'test' === env) {
-    app.use(express.static(path.join(config.root, 'csport/.tmp/serve')));
-    app.use(express.static(app.get('appPath')));
-    app.use(express.static(path.join(config.root, '/csport/')));
-    app.use(morgan('dev'));
-    app.use(errorHandler()); //Error handler - has to be last
-  }
-
+  app.use(express.static(path.join(config.root, '/csport/dist')))
+  app.use(express.static(path.join(config.root, '/csport/src')))
+  app.use(favicon(path.join(config.root, 'csport/dist', 'favicon.ico')))
+  app.use(morgan('dev'));
+  app.use(errorHandler());
 }
