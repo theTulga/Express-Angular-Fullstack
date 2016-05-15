@@ -10,14 +10,14 @@
     var directive = {
       restrict: 'E',
       templateUrl: 'app/components/match/match.html',
-      controller: MatchController,
-      controllerAs: 'MM'
+      controller: MatchListController,
+      controllerAs: 'Mlist'
     };
 
     return directive;
 
     /** @ngInject */
-    function MatchController(send, $log, moment) {
+    function MatchListController(send, $log, moment) {
       var vm = this;
       vm.matches = [];
 
@@ -27,13 +27,7 @@
 
           var now = moment();
           var time = moment(entry.date);
-          var a = now.diff(time);
-
-          if (a > 0 && a < 60 * 60 * 1000){
-            vm.matches[index].timeLeft = humanizeDuration(a, {round: true, units: ['m'], delimiter: '', spacer: ''})
-          } else {
-            vm.matches[index].timeLeft = humanizeDuration(a, {round: true, units: ['d', 'h'], delimiter: '', spacer: ''})
-          }
+          vm.matches[index].timeLeft = now.diff(time);
         })
       }, function(err){
         $log.debug(err);

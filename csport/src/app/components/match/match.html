@@ -1,16 +1,16 @@
-<div class='content_darkgray'>
+<div class='content_darkgray '>
   <h5 class='content_darkgray_head'> Хуваарь </h5>
-  <table class="table match_list">
+  <table class="table pl0">
     <tbody>
-      <tr ng-repeat="match in MM.matches">
-        <td>
+      <tr ng-repeat="match in Mlist.matches">
+        <td class="pl0 pr0">
           <a href='/match/{{match.id}}'>
             <span class='team_name'>{{match.fTeam.title}}</span>
-            <span class='vs'> VS </span>
+            <span class='vs pl5 pr5'> VS </span>
             <span class='team_name2'>{{match.sTeam.title}}</span>
           </a>
 
-          <span class='status'> {{  match.timeLeft }} </span>
+          <span class='status'> {{  match.timeLeft | timeFilter }} </span>
 
         </td>
       </tr>

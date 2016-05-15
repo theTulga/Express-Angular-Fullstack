@@ -18,6 +18,10 @@ $body_gray: #444444;
 // bower:scss
 // endbower
 
+body, .navbar-custom a, .navbar-custom2 a{
+  font-family: Ubuntu !important;
+}
+
 .browsehappy {
   margin: 0.2em 0;
   background: #ccc;

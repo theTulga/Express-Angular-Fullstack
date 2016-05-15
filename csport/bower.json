@@ -23,8 +23,6 @@
     "swiper": "swiper#~3.3.0",
     "angular-swiper": "^0.3.2",
     "angular-ui-notification": "^0.1.0",
-    "humanize-duration": "^3.7.1",
-    "angularjs-humanize-duration": "^0.0.1",
     "angular-ui-bootstrap-datetimepicker": "^1.2.4"
   },
   "devDependencies": {

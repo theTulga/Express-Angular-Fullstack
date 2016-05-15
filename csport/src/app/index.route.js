@@ -6,7 +6,7 @@
     .config(routerConfig);
 
   /** @ngInject */
-  function routerConfig($stateProvider, $urlRouterProvider) {
+  function routerConfig($stateProvider, $urlRouterProvider, $locationProvider) {
     $stateProvider
       .state('main', {
         url: '/',
@@ -21,8 +21,15 @@
         controller: 'HomeController',
         controllerAs: 'home'
       })
+      .state('main.post', {
+        url: 'post/:id',
+        templateUrl: 'app/components/post/post.html',
+        controller: 'PostController',
+        controllerAs: 'post'
+      })
 
     $urlRouterProvider.otherwise('/');
+    $locationProvider.html5Mode(true);
   }
 
 })();

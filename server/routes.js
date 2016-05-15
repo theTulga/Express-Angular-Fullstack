@@ -47,14 +47,13 @@ exports['default'] = function(app, passport) {
   app.use('/api/tournament', upload.single('logo'), require('./api/tournament'))
   app.use('/api/participant', require('./api/participant'))
 
-
   // app.use('/api/user', require('./api/user'))
   app.route('/:url(api|auth|components|app|bower_components|assets)/*')
     .get(errors[404]);
 
   app.route('/*')
     .get(function(req, res) {
-      return res.sendFile(path.resolve(config.root, 'client/.tmp/serve/index.html'));
+      return res.sendFile(path.resolve(config.root, 'csport/.tmp/serve/index.html'));
     });
 };
 module.exports = exports['default'];

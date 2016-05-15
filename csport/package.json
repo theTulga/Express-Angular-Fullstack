@@ -1,7 +1,6 @@
 {
   "name": "csport",
   "version": "0.0.0",
-  "dependencies": {},
   "scripts": {
     "test": "gulp test"
   },
