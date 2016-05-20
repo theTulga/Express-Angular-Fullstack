@@ -8,7 +8,7 @@
     dev: {
       host: 'http://localhost:8081'
     },
-    env: 'app'
+    env: 'dev'
   }
 
   var appConfig = {

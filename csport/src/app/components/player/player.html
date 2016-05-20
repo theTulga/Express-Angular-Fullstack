@@ -1,0 +1,10 @@
+<div class='row mr0 ml0'>
+  <div class="col-md-9 content_white">
+    <div class="starter-template">
+      <h2>{{post.post.title}} </h2>
+      <img ng-if='post.post.pic' class="wFull" src="{{ main.imagePrefix + post.post.pic}}">
+      <p ng-bind-html="post.post.content"></p>
+      <hr>
+    </div>
+  </div>
+</div>

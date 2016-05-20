@@ -36,8 +36,12 @@ module.exports = function(app, passport) {
   app.use(passport.initialize())
   app.use(passport.session())
 
+  // app.use('/admin', express.static(path.join(config.root, '/admin/dist')))
+
+
   app.use(express.static(path.join(config.root, '/csport/dist')))
   app.use(express.static(path.join(config.root, '/csport/src')))
+  // app.use(express.static(path.join(config.root, '/admin/dist')))
   app.use(favicon(path.join(config.root, 'csport/dist', 'favicon.ico')))
   app.use(morgan('dev'));
   app.use(errorHandler());

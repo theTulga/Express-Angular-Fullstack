@@ -27,7 +27,7 @@
 
           var now = moment();
           var time = moment(entry.date);
-          vm.matches[index].timeLeft = now.diff(time);
+          vm.matches[index].timeLeft = now.diff(time) * (-1);
         })
       }, function(err){
         $log.debug(err);

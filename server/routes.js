@@ -51,9 +51,16 @@ exports['default'] = function(app, passport) {
   app.route('/:url(api|auth|components|app|bower_components|assets)/*')
     .get(errors[404]);
 
+
+
   app.route('/*')
     .get(function(req, res) {
       return res.sendFile(path.resolve(config.root, 'csport/dist/index.html'));
     });
+
+  // app.route('/*')
+  //   .get(function(req, res) {
+  //     return res.sendFile(path.resolve(config.root, 'admin/dist/index.html'));
+  //   });
 };
 module.exports = exports['default'];

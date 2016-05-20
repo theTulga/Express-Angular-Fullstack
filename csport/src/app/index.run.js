@@ -9,7 +9,7 @@
   function runBlock($log, $rootScope, $state) {
     var lintIgnore;
     lintIgnore = $rootScope.$on('$stateChangeError', function() {
-      $state.go('login');
+      $state.go('user.signin');
     })
 
     $log.debug('runBlock end');

@@ -27,16 +27,13 @@
           controller: 'PostController',
           controllerAs: 'post'
         })
-        
-
-
 
       // Admin
       .state('admin', {
         url: '/admin',
         templateUrl: 'app/admin/admin.html',
         controller: 'AdminController',
-        controllerAs: 'admin',
+        controllerAs: 'AA',
         resolve: {
           login: onlyAdmin
         }
@@ -47,20 +44,18 @@
         abstract: true,
         template: '<div ui-view> </div>'
       })
-        // .state('user.signin', {
-        //   url: 'signin',
-        //   templateUrl: ,
-        //   controller: ,
-        //   controllerAs:
-        //
-        // })
-        // .state('user.signup', {
-        //   url: 'signup',
-        //   templateUrl: ,
-        //   controller: ,
-        //   controllerAs:
-        //
-        // })
+        .state('user.signin', {
+          url: 'signin',
+          templateUrl: 'app/components/user/signin/signin.html',
+          controller: 'LoginController',
+          controllerAs: 'LL'
+        })
+        .state('user.signup', {
+          url: 'signup',
+          templateUrl: 'app/components/user/signup/signup.html',
+          controller: 'SignUpController',
+          controllerAs: 'Sign'
+        })
 
     $urlRouterProvider.otherwise('/');
     $locationProvider.html5Mode(true);
