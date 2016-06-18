@@ -19,7 +19,7 @@ var db = {
 var models = [
   'user', 'post', 'team', 'match',
   'tournament', 'participant', 'read',
-  'game'
+  'game', 'player'
 ];
 var set_database_so_hard = function(){
   if (db[models[0]]) return
@@ -40,7 +40,8 @@ var set_relations = function(){
       Participant = db.participant,
       Read = db.read,
       Post = db.post,
-      Game = db.game
+      Game = db.game,
+      Player = db.player
 
 
       Team.hasMany(Match, {as: 'fMatches', foreignKey: 'fTeam_id'})
@@ -72,6 +73,8 @@ var set_relations = function(){
       Game.belongsTo(Team, {as: 'won_team', foreignKey: 'winner_id'})
       Game.belongsTo(Team, {as: 'lost_team', foreignKey: 'loser_id'})
 
+  Team.hasMany(Player, {as: 'players', foreignKey: 'team_id'})
+  Player.belongsTo(Team, {as: 'team', foreignKey: 'team_id'})
 
 }();
 

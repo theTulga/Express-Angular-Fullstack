@@ -1,7 +1,8 @@
 var sqldb = require('../../sqldb')
-var Match = sqldb.match;
-var Team = sqldb.team;
-var Tournament = sqldb.tournament;
+var Match = sqldb.match
+var Team = sqldb.team
+var Tournament = sqldb.tournament
+var Player = sqldb.player
 
 function handleError(res, statusCode) {
   statusCode = statusCode || 500;
@@ -11,7 +12,25 @@ function handleError(res, statusCode) {
 }
 
 exports.index = function(req, res, next){
-  Match.findAll()
+  Match.findAll({
+    limit: 6,
+    include: [{
+        model: Team,
+        as:    'fTeam',
+        include: {
+          model: Player,
+          as: 'players'
+        }
+      }, {
+        model: Team,
+        as:    'sTeam',
+        include: {
+          model: Player,
+          as: 'players'
+        }
+      }],
+      order: 'date DESC'
+  })
     .then(function (matchs) {
       res.status(200).json(matchs);
     }).catch(handleError(res));

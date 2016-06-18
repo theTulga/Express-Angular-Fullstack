@@ -1,4 +1,5 @@
-var Team = require('../../sqldb').team;
+var Team = require('../../sqldb').team
+var Player = require('../../sqldb').player
 
 function handleError(res, statusCode) {
   statusCode = statusCode || 500;
@@ -8,7 +9,12 @@ function handleError(res, statusCode) {
 }
 
 exports.index = function(req, res, next){
-  Team.findAll()
+  Team.findAll({
+    include: [{
+      model: Player,
+      as: 'players'
+    }]
+  })
     .then(function (Teams) {
       res.status(200).json(Teams);
       return null
@@ -52,7 +58,11 @@ exports.show = function (req, res, next) {
   Team.find({
     where: {
       id: TeamId
-    }
+    },
+    include: [{
+      model: Player,
+      as: 'players'
+    }]
   })
     .then(function (item) {
       if (!item) {

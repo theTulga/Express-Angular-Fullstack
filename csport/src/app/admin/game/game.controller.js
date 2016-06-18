@@ -8,16 +8,21 @@
   /** @ngInject */
   function adminGameController($log, send, Notification) {
     var vm = this;
-    vm.match = {};
+    vm.matches = [];
     vm.teams = [];
     vm.team1 = {};
     vm.team2 = {};
 
-    vm.setTeam = function(team, id) {
-      angular.forEach(vm.teams, function(entry) {
+    vm.selectMatch = function(id) {
+      $log.debug('incoming ID', id)
+      angular.forEach(vm.matches, function(entry) {
+
+        $log.debug(entry.id)
         if (entry.id === id){
-          if (team === 1) return vm.team1 = entry;
-          if (team === 2) return vm.team2 = entry;
+          $log.debug('entry.fTeam', entry.fTeam);
+          $log.debug('entry.sTeam', entry.sTeam);
+          vm.team1 = entry.fTeam;
+          vm.team2 = entry.sTeam;
         }
       })
     }
@@ -39,10 +44,10 @@
           });
     }
 
-    send.request('/team', 'GET')
+    send.request('/match', 'GET')
       .then(
         function(res) {
-          vm.teams = res;
+          vm.matches = res;
         },
         function(err) {
           $log.debug(err);

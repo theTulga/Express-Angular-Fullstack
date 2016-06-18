@@ -35,6 +35,18 @@
           controller: 'adminParticipantController',
           controllerAs: 'aPart'
         })
+        .state('admin.game', {
+          url: '/game',
+          templateUrl: 'app/admin/game/game.html',
+          controller: 'adminGameController',
+          controllerAs: 'aGame'
+        })
+        .state('admin.player', {
+          url: '/player',
+          templateUrl: 'app/admin/player/player.html',
+          controller: 'adminPlayerController',
+          controllerAs: 'aPlayer'
+        })
     })
 
 })()
